@@ -360,7 +360,7 @@ The printed configuration has a section under `batch->transcription->languages`:
 
 ## Language Identification
 
-Disabled by default. Available in `Batch` mode only. Requires the `ALID` license feature (see [licensing.md](licensing.md#license-feature-codes)).
+Disabled by default. Available in `Batch` mode only. `ALID` is the license feature code for language identification (see [licensing.md](licensing.md#license-feature-codes)).
 
 Enable:
 
@@ -371,10 +371,10 @@ curl -sSL -u admin:admin -X 'POST' \
   -d '{"max_thread_count": 1, "memory_per_thread": "3Gi"}'
 ```
 
-| Field | Required | Default | Meaning |
+| Field | Optional | Default | Meaning |
 | --- | --- | --- | --- |
-| `max_thread_count` | Yes | Disabled | Maximum number of threads Language Identification uses. `0` disables it. Each task uses up to one thread, so set `2` to allow 2 parallel identification tasks |
-| `memory_per_thread` | No | `3Gi` | Memory reserved for each configured thread. Increase it for large audio files |
+| `max_thread_count` | Not stated | Not stated | Maximum number of threads Language Identification uses. `0` disables it. Each task uses up to one thread, so set `2` to allow 2 parallel identification tasks |
+| `memory_per_thread` | Yes | `3Gi` | Memory reserved for each configured thread. Increase it for large audio files |
 
 Reserved memory is `max_thread_count` x `memory_per_thread`: 2 threads at `3Gi` reserve 6Gi.
 

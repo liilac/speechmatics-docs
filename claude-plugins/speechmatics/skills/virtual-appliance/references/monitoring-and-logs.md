@@ -319,7 +319,7 @@ logcli query
 - This creates a queue of jobs, each 15 minutes long: forty jobs for the 10-hour range. `--limit` is ignored.
 - Four workers each take jobs from the queue until all are complete.
 - Each job saves a part file at the `--part-path-prefix` location. Use different prefixes to run multiple queries at once. The file name holds the start and end timestamps of the part.
-- While downloading, the file name ends in `.part.tmp`. A completed part ends in `.part`. A completed part is not downloaded again unless you pass `--overwrite-completed-parts`.
+- While a part is downloading, its file name ends in `.part`. When complete, the file is renamed to remove the `.part` extension. (The example listing below, copied from the manual, instead shows `.part.tmp` for in-progress parts and `.part` for completed ones.) A completed part is not downloaded again unless you pass `--overwrite-completed-parts`.
 - Without `--forward`, parts download in reverse.
 - Without `--merge-parts`, logcli downloads the part files and exits. With it, parts are read in order and printed as soon as the next part is complete, then removed. `--keep-parts` keeps them.
 

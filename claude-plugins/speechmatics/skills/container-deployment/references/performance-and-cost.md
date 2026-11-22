@@ -61,7 +61,7 @@ Benchmark configuration:
 
 For GPU models, transcribers and inference servers ran on a single VM node. Diarization was disabled.
 
-Realtime transcriber resource use when linked to a GPU inference server:
+Realtime transcriber resource use reported with this benchmark:
 
 - First session: 0.25 cores for both models, with 1.2 GB memory (Standard) or 3 GB memory (Enhanced).
 - Each additional session: 0.1 cores and 100 MB memory.
