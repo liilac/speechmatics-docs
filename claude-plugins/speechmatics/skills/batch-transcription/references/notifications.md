@@ -82,7 +82,7 @@ The user agent is `Speechmatics-API/2.0`.
 | Exactly one of `transcript.srt`, `transcript.txt` | `text/plain` | The SRT or text transcript |
 | `data`, or two or more items | `multipart/form-data` | Items as named file attachments |
 
-A callback with a single attachment sends the item as the request body rather than multipart. This allows writing an individual item directly to an object store such as Amazon S3 (for example with `"method": "put"` to a pre-signed URL).
+A callback with a single attachment sends the item as the request body rather than multipart. This allows writing an individual item directly to an object store such as Amazon S3.
 
 ### Responding
 

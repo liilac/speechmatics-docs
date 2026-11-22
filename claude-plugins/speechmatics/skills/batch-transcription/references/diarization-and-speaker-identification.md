@@ -217,7 +217,7 @@ Rules:
 - Each item needs `label` (at least 1 character) and `speaker_identifiers` (at least 1, unique).
 - `label` must not match the internal format (`S1`, `S2`, and so on).
 - A maximum of 50 speaker identifiers across all speakers can be provided.
-- A speaker can have several identifiers, for example from different enrollment samples.
+- A speaker can have several identifiers.
 - All other speaker diarization options remain supported.
 - `speaker_sensitivity` adjusts how strongly the system prefers enrolled speakers over detecting new generic ones. Lower values make a match to an enrolled speaker more likely.
 
