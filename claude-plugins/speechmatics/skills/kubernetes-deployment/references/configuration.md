@@ -155,7 +155,7 @@ transcribers:
       scaleOnCapacityLeft: 1
 ```
 
-`SessionGroups` scale transcribers and inference servers with demand and protect pods with active sessions from removal. Capacity units differ: inference servers count inference tokens (480 per replica in the default validation output, 600 in the English custom example); transcribers count sessions (2 per replica in the default validation output).
+`SessionGroups` scale transcribers and inference servers with demand and protect pods with active sessions from removal. Per the example comments, inference server capacity is counted in inference tokens and transcriber capacity in sessions. `kubectl get sessiongroups` shows the current `CAPACITY` and `USAGE` of each.
 
 ## Models
 

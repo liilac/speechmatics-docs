@@ -194,7 +194,7 @@ client.finalize()
 | Speech begins | `SpeechStarted` | (not sent) |
 | First word transcribed | `StartOfTurn` | `StartOfTurn` |
 | While speaking | `AddPartialSegment` (if enabled), `AddSegment` at each segment boundary | Same |
-| Mid-sentence pause | `SpeechEnded`, then `SpeechStarted` when speech resumes; the turn stays open | (not sent) |
+| Mid-sentence pause | `SpeechEnded`; the turn stays open | (not sent) |
 | Turn closes | Service detects speech has stopped | Client sends `ForceEndOfUtterance` |
 | Final output | Final `AddSegment`, then `EndOfTurn` | Final `AddSegment`, then `EndOfTurn` |
 

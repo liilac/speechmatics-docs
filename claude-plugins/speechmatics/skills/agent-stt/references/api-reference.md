@@ -101,7 +101,7 @@ Pass `AddSegment` downstream to the LLM, and use `AddPartialSegment` only for di
 
 ## StartRecognition
 
-No additional properties are accepted at any level.
+Unknown properties are rejected (the schema sets `additionalProperties: false`).
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
@@ -359,7 +359,7 @@ For `4005`, `4013`, and `1011` only, retry after at least 5–10 seconds.
 | Turn messages | `StartOfTurn`, `EndOfTurn`, `SpeechStarted`, `SpeechEnded` | `EndOfUtterance` |
 | Turn configuration | `turn_config.turn_detection_mode` | `conversation_config.end_of_utterance_silence_trigger` |
 | `ForceEndOfUtterance` | `external` mode only; `timestamp` required | Any time; `timestamp` and `channel` optional |
-| `audio_format` | `raw` only; `pcm_f32le` or `pcm_s16le`; 8000 or 16000 Hz | `raw` (also `mulaw`, any sample rate) or `file` |
+| `audio_format` | `raw` only; `pcm_f32le` or `pcm_s16le`; 8000 or 16000 Hz | `raw` (`pcm_f32le`, `pcm_s16le`, `mulaw`; integer sample rate in Hz) or `file` |
 | `diarization` | `none`, `speaker` | `none`, `speaker`, `channel`, `channel_and_speaker` |
 | Mid-session config | `enable_partials` | `max_delay`, `max_delay_mode`, `enable_partials`, `audio_filtering_config`, `conversation_config` |
 | Not in the agent STT schema | | `max_delay`, `max_delay_mode`, `translation_config`, `audio_events_config`, `punctuation_overrides`, `audio_filtering_config`, `enable_entities`, `language_hints`, `AddChannelAudio` |

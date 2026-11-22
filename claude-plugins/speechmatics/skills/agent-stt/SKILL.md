@@ -1,6 +1,6 @@
 ---
 name: agent-stt
-description: Covers agent STT, the turn-based Speech to Text interaction pattern on the Speechmatics Realtime API (Linden 1 model) that returns punctuated, speaker-attributed segments and turn events ready to pass to an LLM. Includes the /v2/agent WebSocket endpoint, handshake and authentication, StartRecognition config, the Agent STT SDK (speechmatics-agent-stt), segmentation, turn detection modes, message schemas, errors, and close codes. Use when building the speech-to-text layer of a voice agent, choosing between agent STT and plain Realtime transcription, or when a user mentions linden-1, /v2/agent, AgentSttAsyncClient, AddSegment, AddPartialSegment, StartOfTurn, EndOfTurn, SpeechStarted, SpeechEnded, turn_config, turn_detection_mode, emit_sentences, or ForceEndOfUtterance in external mode.
+description: Covers agent STT, the turn-based Speech to Text (STT) interaction pattern on the Speechmatics Realtime API (Linden 1 model) that returns punctuated, speaker-attributed segments and turn events ready to pass to an LLM. Includes the /v2/agent WebSocket endpoint, handshake and authentication, StartRecognition config, the Agent STT SDK (speechmatics-agent-stt), segmentation, turn detection modes, message schemas, errors, and close codes. Use when building the STT layer of a voice agent, choosing between agent STT and plain Realtime transcription, or when a user mentions linden-1, /v2/agent, AgentSttAsyncClient, AddSegment, AddPartialSegment, StartOfTurn, EndOfTurn, SpeechStarted, SpeechEnded, turn_config, turn_detection_mode, emit_sentences, or ForceEndOfUtterance in external mode.
 ---
 
 # Agent STT
@@ -22,11 +22,7 @@ Agent STT is transcription designed for building voice agents. Stream audio in a
 
 The Realtime API returns transcription word by word and leaves grouping to the client. Agent STT does the grouping and turn detection on the service.
 
-Three ways to use agent STT:
-
-1. An integration (LiveKit, Pipecat, Vapi).
-2. The Agent STT SDK, a Python client.
-3. The WebSocket API directly, from any language.
+Three ways to use agent STT: an integration (LiveKit, Pipecat, Vapi), the Agent STT SDK (a Python client), or the WebSocket API directly from any language.
 
 ## Prerequisites
 
@@ -58,11 +54,9 @@ export SPEECHMATICS_API_KEY=<your-api-key>
 ```python
 import asyncio
 
-from speechmatics.agent_stt import AgentSttAsyncClient
-from speechmatics.agent_stt import Microphone
-from speechmatics.agent_stt import Model
-from speechmatics.agent_stt import ServerMessageType
-from speechmatics.agent_stt import TranscriptionConfig
+from speechmatics.agent_stt import (
+    AgentSttAsyncClient, Microphone, Model, ServerMessageType, TranscriptionConfig,
+)
 
 SAMPLE_RATE = 16000
 CHUNK_SIZE = 1024
@@ -190,14 +184,8 @@ Segment payload:
 ```json
 {
   "message": "AddSegment",
-  "segment": {
-    "transcript": "Hello, I'd like to check on my order.",
-    "speaker": "S1"
-  },
-  "metadata": {
-    "start_time": 1.02,
-    "end_time": 3.24
-  }
+  "segment": { "transcript": "Hello, I'd like to check on my order.", "speaker": "S1" },
+  "metadata": { "start_time": 1.02, "end_time": 3.24 }
 }
 ```
 
