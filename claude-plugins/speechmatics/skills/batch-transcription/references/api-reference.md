@@ -99,7 +99,7 @@ Docs: https://docs.speechmatics.com/api-ref/batch/list-all-jobs
 | `limit` | query | integer, 1 to 100 | Limit on the number of items returned |
 | `include_deleted` | query | boolean | Include deleted jobs. Defaults to `false` |
 
-Returns the 100 most recent jobs submitted in the past 7 days. To page, pass the `created_at` of the last job received as `created_before`.
+The docs state this returns the 100 most recent jobs submitted in the past 7 days (the spec says no `limit` is applied by default; `limit` itself cannot exceed 100). `created_before` is the pagination cursor: pass a timestamp to get jobs created before it.
 
 Response `200` (`RetrieveJobsResponse`): `{ "jobs": [JobDetails, ...] }`, most recent first.
 

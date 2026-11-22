@@ -100,7 +100,7 @@ A job can be accepted (HTTP 201) and later move to `status` `rejected`. Read `jo
 |---|---|
 | Audio could not be fetched from `fetch_data.url` | [job-config.md](job-config.md) |
 | Language identification failed or the language was unexpected | [language-identification.md](language-identification.md) |
-| Unsupported file type, or uploaded file of 1 GB or more | [job-config.md](job-config.md) |
+| Uploaded file of 1 GB or more | [job-config.md](job-config.md) |
 | Output locale combined with `"language": "auto"` | [language-identification.md](language-identification.md) |
 
 A notification delivery failure also writes to `job.errors[]`, but the job stays `done`. See [notifications.md](notifications.md).

@@ -10,7 +10,7 @@ Use end of utterance detection to detect when a person has finished speaking, fo
 | --- | --- | --- |
 | Silence-based end of utterance | `conversation_config.end_of_utterance_silence_trigger` | Enhanced, Standard |
 | Client-side turn detection | Send `ForceEndOfUtterance` | Enhanced, Standard, Melia 1, Oak 1 |
-| Semantic turn detection | Combine silence-based detection with conversation context in the application | Any |
+| Semantic turn detection | Combine silence-based detection with conversation context in the application | See the linked guide |
 
 Melia 1 and Oak 1 do not support automatic silence-based detection and reject `end_of_utterance_silence_trigger` in `conversation_config`. Omit it and send `ForceEndOfUtterance` from the client.
 

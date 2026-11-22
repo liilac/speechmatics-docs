@@ -32,11 +32,11 @@ Docs: https://docs.speechmatics.com/ · Quickstart: https://docs.speechmatics.co
 |---|---|---|
 | Transcripts as the audio plays: live captions, broadcasts, meetings, call monitoring | Realtime API | WebSocket `wss://<rt-host>/v2` |
 | Complete transcript of a recorded file; highest accuracy; range of output formats | Batch API | REST `https://<batch-host>/v2/jobs/` |
-| Punctuated, speaker-attributed segments plus turn start and end, ready to pass to an LLM | agent STT | WebSocket `wss://<rt-host>/v2/agent` |
+| Punctuated, speaker-attributed segments plus turn start and end, ready to pass to an LLM | Agent STT | WebSocket `wss://<rt-host>/v2/agent` |
 | Speech from text | TTS API | See `speechmatics:text-to-speech` |
 
 - Batch is asynchronous by default: submit a job, monitor it, retrieve the transcript. A job holds the audio or video file, the config, metadata and status, and the transcripts. Create jobs by direct upload or by referencing a URL. A synchronous mode is also documented (`speechmatics:batch-transcription`).
-- agent STT is the STT layer for building voice agents. It is SaaS only.
+- Agent STT is the STT layer for building voice agents. It is SaaS only.
 - The quickest way to try a product without code is the portal: https://portal.speechmatics.com/
 
 ## Choose a model
@@ -49,7 +49,7 @@ Set `model` in `transcription_config`. Default when omitted: `standard`.
 | `standard` | Throughput or latency over maximum accuracy (archival, indexing, large-scale captioning) | Batch, Realtime |
 | `melia-1` | Audio with more than one language, including mid-conversation switching. Requires `"language": "multi"` | Batch, Realtime |
 | `oak-1` | Multilingual healthcare audio. Requires `"language": "multi"` | Batch, Realtime |
-| `linden-1` | agent STT only, on the `/v2/agent` path | agent STT |
+| `linden-1` | Agent STT only, on the `/v2/agent` path | Agent STT |
 
 - Single-language healthcare audio needing full features: `"model": "enhanced"` plus `"domain": "medical"` (Enhanced Medical).
 - Melia 1 and Oak 1 reject `"language": "auto"` and support a reduced feature set (no custom dictionary, confidence scores, speaker identification, or speech intelligence yet).
@@ -89,7 +89,7 @@ Connection: Upgrade
 Authorization: Bearer YOUR_API_KEY
 ```
 
-agent STT (server-side): same header, path `/v2/agent`.
+Agent STT (server-side): same header, path `/v2/agent`.
 
 ### Browser and client-side use: temporary keys
 
@@ -150,7 +150,7 @@ Set `language` in `transcription_config` to an ISO 639-1 or ISO 639-3 code, for 
 - `auto` (language identification) is Batch only, and not for Melia 1 or Oak 1.
 - Bilingual packs for Enhanced and Standard: `ar_en`, `en_ms`, `cmn_en`, `cmn_en_ms_ta`, `en_ta`, `tl`, and Spanish and English as `"language": "es"` with `"domain": "bilingual-en"`.
 - Melia 1 and Oak 1 use `"language": "multi"`.
-- agent STT (Linden 1) supports the same languages as Realtime; translation is not available.
+- Agent STT (Linden 1) supports the same languages as Realtime; translation is not available.
 
 Full code table, medical languages, translation pairs: [references/languages.md](references/languages.md).
 
@@ -160,7 +160,7 @@ Full code table, medical languages, translation pairs: [references/languages.md]
 |---|---|---|
 | Realtime (Python) | `pip install speechmatics-rt` | https://github.com/speechmatics/speechmatics-python-sdk/tree/main/sdk/rt |
 | Batch (Python) | `pip install speechmatics-batch` | https://github.com/speechmatics/speechmatics-python-sdk/tree/main/sdk/batch |
-| agent STT (Python) | `pip install speechmatics-agent-stt` | https://github.com/speechmatics/speechmatics-python-sdk/tree/main/sdk/agent_stt |
+| Agent STT (Python) | `pip install speechmatics-agent-stt` | https://github.com/speechmatics/speechmatics-python-sdk/tree/main/sdk/agent_stt |
 | TTS (Python) | See repository | https://github.com/speechmatics/speechmatics-python-sdk/tree/main/sdk/tts |
 | Realtime (JavaScript) | `npm install @speechmatics/real-time-client @speechmatics/auth` | https://github.com/speechmatics/speechmatics-js-sdk/tree/main/packages/real-time-client |
 | Batch (JavaScript) | `npm install @speechmatics/batch-client` | https://github.com/speechmatics/speechmatics-js-sdk/tree/main/packages/batch-client |

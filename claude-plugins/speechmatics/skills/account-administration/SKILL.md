@@ -31,9 +31,9 @@ Workspace (members, roles, billing, usage, management tokens)
 
 | Credential | Authenticates | Scope | Expires | Created |
 |---|---|---|---|---|
-| API key | STT and TTS requests | One project | No, until revoked | Portal, or Management API |
+| API key | STT and TTS requests | One project | Long-lived, until revoked | Portal, or Management API |
 | Temporary key (JWT) | STT requests from end-user clients | Project of the API key that minted it | 60-86400 seconds | `POST /v1/jwts` with an API key (`speechmatics:get-started`) |
-| Management token | Management API (workspace administration) | Workspace | No, until revoked | Portal only |
+| Management token | Management API (workspace administration) | Workspace | No, until revoked | Portal |
 
 Token and key values are shown once at creation. Store them immediately.
 
@@ -156,7 +156,7 @@ Details: [references/regions-security.md](references/regions-security.md).
 - An account cannot be deleted while it is Admin in multiple workspaces. A deleted account's email address cannot be reused.
 - `DELETE /projects/{project_id}` returns `403` most probably because of outstanding payments. `POST /api-keys` returns `403` when the project already has the maximum number of API keys.
 - A long-lived API key can call `POST /api-keys` only to create temporary keys. Permanent keys need a management token. For temporary keys the authentication docs direct you to `POST /v1/jwts`.
-- More than 1000 projects: use temporary keys with `client_ref` to isolate end users instead, or contact support@speechmatics.com.
+- More than 1000 projects: use temporary keys instead, or contact support@speechmatics.com.
 - SSO is a paid add-on enabled by support, not self-serve.
 - You never pass a project ID to the transcription APIs. The API key determines the project.
 

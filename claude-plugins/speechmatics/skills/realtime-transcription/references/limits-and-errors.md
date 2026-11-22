@@ -80,25 +80,25 @@ After any `Error` message the transcription is terminated and the connection is 
 | `protocol_error` | Messages in the wrong order, or a protocol limit such as the custom dictionary size. | Fix message ordering. |
 | `quota_exceeded` | Concurrent connection limit reached. | Retry after 5–10 seconds; reduce concurrency. |
 | `timelimit_exceeded` | Usage quota for the contract reached. | |
-| `idle_timeout` | No audio for 1 hour. | Reconnect when audio resumes. |
-| `session_timeout` | 48-hour maximum reached. | Reconnect. |
+| `idle_timeout` | No audio for 1 hour. | Start a new session. |
+| `session_timeout` | 48-hour maximum reached. | Start a new session. |
 | `unknown_error` | Anything else. | |
 
 ## Close codes
 
 | Close code | Reason | Retry |
 | --- | --- | --- |
-| 1003 | `protocol_error` | No |
-| 1008 | `policy_violation` (includes idle and session timeouts) | No |
+| 1003 | `protocol_error` | Not listed as retryable |
+| 1008 | `policy_violation` (includes idle and session timeouts) | Not listed as retryable |
 | 1011 | `internal_error` | After at least 5–10 seconds |
-| 4001 | `not_authorised` | No |
-| 4003 | `not_allowed` | No |
-| 4004 | `invalid_model` | No |
+| 4001 | `not_authorised` | Not listed as retryable |
+| 4003 | `not_allowed` | Not listed as retryable |
+| 4004 | `invalid_model` | Not listed as retryable |
 | 4005 | `quota_exceeded` | After at least 5–10 seconds |
-| 4006 | `timelimit_exceeded` | No |
+| 4006 | `timelimit_exceeded` | Not listed as retryable |
 | 4013 | `job_error` | After at least 5–10 seconds |
 
-"No" means the docs name only `4005`, `4013`, and `1011` as retryable; reconnecting after a `1008` timeout with a fresh session is still expected.
+Retry only after `4005`, `4013`, and `1011`. After a `1008` idle or session timeout, start a new session when needed (see [Handling long-running sessions](#handling-long-running-sessions)).
 
 ## Handshake failures
 
