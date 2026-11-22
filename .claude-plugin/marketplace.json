@@ -3,6 +3,9 @@
   "owner": {
     "name": "Speechmatics"
   },
+  "metadata": {
+    "description": "Claude Code plugins for building with Speechmatics."
+  },
   "plugins": [
     {
       "name": "speechmatics",
