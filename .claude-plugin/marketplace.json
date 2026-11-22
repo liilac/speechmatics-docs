@@ -1,0 +1,13 @@
+{
+  "name": "speechmatics",
+  "owner": {
+    "name": "Speechmatics"
+  },
+  "plugins": [
+    {
+      "name": "speechmatics",
+      "source": "./claude-plugins/speechmatics",
+      "description": "Skills for building with Speechmatics: Speech to Text (Batch, Realtime, agent STT), Text to Speech, voice agent integrations, on-prem deployment, and account administration."
+    }
+  ]
+}
