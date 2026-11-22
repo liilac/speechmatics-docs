@@ -172,7 +172,7 @@ Topics are only present in the JSON output, under the top-level `topics` object.
 
 ### `topics.summary.overall`
 
-An object mapping each topic name to an integer count of segments. Topics with no segments appear with `0`.
+An object mapping each topic name to an integer count.
 
 With custom topics (API spec example):
 
@@ -224,8 +224,6 @@ Custom topics `["War", "Weather"]` on the same audio:
 | War | In his first direct phone call with the Chinese leader Xi Jinping, since Russia invaded Ukraine. Mr. Zelensky stressed Ukraine would not accept any loss of territory. | 26.99 | 37.76 |
 | War | Renewed fighting near Khartoum is threatening the three day ceasefire in Sudan. | 38.33 | 43.25 |
 | Weather | The European Union says in 2022, Southern Europe experienced the highest number of days on record with very strong heat stress. | 107.48 | 117.56 |
-
-Custom topics change both which segments are returned and their boundaries. Segments that match no topic are not returned.
 
 ## Considerations
 
