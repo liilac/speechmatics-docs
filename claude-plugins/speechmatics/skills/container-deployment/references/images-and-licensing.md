@@ -173,7 +173,7 @@ Which containers need a license:
 | Container | License |
 |---|---|
 | Batch and Realtime transcribers | Required |
-| Standard/Enhanced and Melia 1/Oak 1 GPU inference servers | No specific license; runs with an existing Batch or Realtime container license. The docs examples mount `license.json` into the server |
+| Standard/Enhanced and Melia 1/Oak 1 GPU inference servers | No specific license; runs with an existing Batch or Realtime container license (the Melia 1 and Oak 1 page says only "Batch Container", although it also documents Realtime). The docs examples mount `license.json` into the server |
 | Translation inference server | None, but the client transcriber's license must have translation enabled |
 | Language ID | Required, with language ID enabled |
 

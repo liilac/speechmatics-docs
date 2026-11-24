@@ -468,6 +468,8 @@ stt = SpeechmaticsSTTService(
 pip install "pipecat-ai[speechmatics]~=1.11.0"
 ```
 
+The TTS page pins `~=1.11.0`, while the quickstart and STT pages pin `~=1.14.0`.
+
 ### Usage
 
 ```python
@@ -503,5 +505,5 @@ For available voices and detailed TTS options, see `speechmatics:text-to-speech`
 | `ValueError` at construction | Both `operating_point` and `model` passed with different values |
 | Service fails permanently on start | `sample_rate` is not `8000` or `16000`, the API key was rejected, or agent STT refused the configuration |
 | Turns fight each other in `VAD` mode | Remove the competing `vad_analyzer` or `turn_analyzer` from the transport |
-| Connected to the wrong API | `base_url` or `SPEECHMATICS_RT_URL` must use the `/v2/agent` path; `/v2` is the streaming endpoint |
+| Custom `base_url` or `SPEECHMATICS_RT_URL` | Agent STT is served on `/v2/agent`; `/v2` is the streaming endpoint. The docs also say the SDK appends `/agent` when the URL omits it |
 | Linden 1 unavailable | Upgrade to Pipecat 1.11.0 or later |

@@ -31,7 +31,7 @@ Docs: https://docs.speechmatics.com/ · Quickstart: https://docs.speechmatics.co
 | Need | Product | Transport |
 |---|---|---|
 | Transcripts as the audio plays: live captions, broadcasts, meetings, call monitoring | Realtime API | WebSocket `wss://<rt-host>/v2` |
-| Complete transcript of a recorded file; highest accuracy; range of output formats | Batch API | REST `https://<batch-host>/v2/jobs/` |
+| Complete, highly accurate transcript of a recorded file; range of output formats | Batch API | REST `https://<batch-host>/v2/jobs/` |
 | Punctuated, speaker-attributed segments plus turn start and end, ready to pass to an LLM | Agent STT | WebSocket `wss://<rt-host>/v2/agent` |
 | Speech from text | TTS API | See `speechmatics:text-to-speech` |
 

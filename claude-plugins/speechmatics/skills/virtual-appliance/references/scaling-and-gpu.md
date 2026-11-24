@@ -81,7 +81,7 @@ curl -sSL -u admin:admin -X 'GET' \
 
 ## Enable GPU inference
 
-GPU mode is disabled by default. The host must be able to pass a GPU through to the VM. VMware Workstation cannot.
+GPU mode is disabled by default (the docs state this for `batch` mode; the Realtime appliance supports GPU transcription only). The host must be able to pass a GPU through to the VM. VMware Workstation cannot.
 
 Hardware requirements match the GPU inference container: see `speechmatics:container-deployment` and https://docs.speechmatics.com/deployments/container/gpu-speech-to-text#system-requirements. Because the OVA is self-contained, consider only GPU memory, the driver version on the host, and the CUDA capability level.
 

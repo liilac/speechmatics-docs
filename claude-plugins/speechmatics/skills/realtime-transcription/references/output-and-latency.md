@@ -24,7 +24,7 @@ With both enabled, Partials arrive first, then the Final:
 
 ## Latency settings
 
-Low-latency configuration:
+Low-latency configuration. The `"type": "transcription"` wrapper below is as shown in the docs; `StartRecognition` itself has no `type` field, so send only the `transcription_config` part. See [configuration.md](configuration.md).
 
 ```json
 {

@@ -51,7 +51,7 @@ Before raising a ticket, check:
 | 422 | Invalid query parameter, for example `limit in query must be of type int64` | Fix the parameter |
 | 423 | `Resource Locked`: deleting a running job without `force` | Pass `force=true` |
 | 429 | Rate limited, or `Max concurrent running jobs exceeded` | Add a 1-second delay between requests of the same type, for example between `GET /v2/jobs/{job_id}` requests |
-| 500 | Internal server error | Retry; contact Support if it persists |
+| 500 | Internal server error | The docs give no specific action. See [Raise an incident](#raise-an-incident) |
 | 503 | Service unavailable (rare) | Retry immediately. If it persists, raise an incident |
 
 ### 401 response format

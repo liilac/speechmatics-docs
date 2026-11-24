@@ -34,6 +34,8 @@ Set `transcription_config.diarization`:
 
 Picks out different speakers from the audio stream by acoustic matching.
 
+The `"type": "transcription"` wrapper in the snippets in this file is as shown in the docs; `StartRecognition` itself has no `type` field, so send only the `transcription_config` part. See [configuration.md](configuration.md).
+
 ```json
 {
   "type": "transcription",

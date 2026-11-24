@@ -48,7 +48,6 @@ The SDK manages the WebSocket session, streams audio, and delivers segments and 
 pip install speechmatics-agent-stt pyaudio
 export SPEECHMATICS_API_KEY=<your-api-key>
 ```
-
 `pyaudio` is required for microphone input.
 
 ```python
@@ -156,7 +155,7 @@ Expected output:
 
 | Field | Values | Default | Notes |
 | --- | --- | --- | --- |
-| `model` | `linden-1` | required | The SDK sets it when omitted. |
+| `model` | `linden-1` | required | Required by the API schema. The docs' `external` mode SDK sample omits it from `TranscriptionConfig`; pass `Model.LINDEN_1` to be explicit. |
 | `language` | language code | required | See `speechmatics:get-started` for languages. |
 | `enable_partials` | boolean | `false` | Sends `AddPartialSegment`. |
 | `diarization` | `none`, `speaker` | `none` | `speaker` adds `segment.speaker` labels (`S1`, `S2`, ...). |

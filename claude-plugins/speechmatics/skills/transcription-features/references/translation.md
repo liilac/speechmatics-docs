@@ -316,7 +316,7 @@ For the live list of pairs, query feature discovery: [feature-discovery.md](feat
 
 - Maximum 5 target languages per transcription.
 - Only JSON output includes translations. Text and SRT contain the source language only.
-- Timestamps per word, confidence scores, word tagging and regional spelling are available only in the original language.
+- Timestamps, confidence scores, word tagging and regional spelling are available only in the original language (docs wording). Translated sentences still carry sentence-level `start_time` and `end_time`.
 
 ## More
 

@@ -37,7 +37,7 @@ Accuracy = 100 − WER
 - `S` substitutions: a reference word replaced by an incorrect word.
 - `N`: word count of the reference transcript.
 
-The edit count is the minimum number of edits needed to make the two transcripts match (the Levenshtein distance). A WER of 5% means an accuracy of 95%. WER can exceed 100% because insertions are counted.
+The edit count is the minimum number of edits needed to make the two transcripts match (the Levenshtein distance). A WER of 5% means an accuracy of 95%.
 
 Example:
 

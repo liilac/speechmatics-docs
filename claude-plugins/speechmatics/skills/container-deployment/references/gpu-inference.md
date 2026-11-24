@@ -42,7 +42,7 @@ Validate the driver with `nvidia-smi`. It returns the driver version and GPU det
 
 Each inference server container runs on a single GPU. On a multi-GPU system, specify the device with `CUDA_VISIBLE_DEVICES` or the `--gpus` argument.
 
-No GPU-specific license exists. The server runs with an existing Batch or Realtime container license.
+No GPU-specific license exists. The server runs with an existing Batch or Realtime container license. (The Melia 1 and Oak 1 page names only the Batch container license, although it also documents Realtime.)
 
 ## Standard and Enhanced server
 

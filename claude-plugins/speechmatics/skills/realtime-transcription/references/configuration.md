@@ -7,6 +7,8 @@ Docs:
 
 All configuration is sent in the `StartRecognition` message. Required top-level fields: `message`, `audio_format`, `transcription_config`. Optional: `translation_config`, `audio_events_config`.
 
+Docs versus schema: several docs snippets wrap the config as `{ "type": "transcription", "transcription_config": {...} }` while saying to include it in `StartRecognition`. The API schema for `StartRecognition` has no `type` field: send `"message": "StartRecognition"`, `audio_format`, and the `transcription_config` object. Snippets in these reference files that start with `"type": "transcription"` are copied from the docs; use only their `transcription_config` part.
+
 ## audio_format
 
 Two input types: `raw` and `file`. Use `raw` unless there is a specific reason to use `file`.
@@ -57,7 +59,7 @@ After `RecognitionStarted`, send audio as binary WebSocket data, encoded as decl
 | `speaker_diarization_config` | object | | See [diarization.md](diarization.md#speaker_diarization_config-reference). |
 | `max_delay` | number | 4 | 0.7 to 4. Delay in seconds between the end of a spoken word and its Final. See [output-and-latency.md](output-and-latency.md). |
 | `max_delay_mode` | string | `flexible` | `flexible` or `fixed`. `flexible` allows extra time for smart formatting. |
-| `enable_partials` | boolean | `false` | Whether to send `AddPartialTranscript` messages as well as Finals. |
+| `enable_partials` | boolean | `false` | Whether to send `AddPartialTranscript` messages as well as Finals (per the output docs page; the schema description of this field names `AddPartialTranslation`/`AddTranslation` instead, which `translation_config.enable_partials` controls). |
 | `enable_entities` | boolean | `true` | Exposes each smart formatting entity's structure (`entity` results with `entity_class`, `spoken_form`, `written_form`) in the output. |
 | `audio_filtering_config` | object | | `volume_threshold` (number, 0 to 100): a lower limit on the volume of processed audio. |
 | `transcript_filtering_config` | object | | `remove_disfluencies` (boolean); `replacements` (array of `{ "from": "...", "to": "..." }`, both required). |

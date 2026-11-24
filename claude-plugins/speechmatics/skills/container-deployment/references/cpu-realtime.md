@@ -140,7 +140,7 @@ Cache details: [cpu-batch.md](cpu-batch.md#shared-custom-dictionary-cache).
 
 ## Non-root user
 
-The realtime container runs as a non-root user with no loss of functionality. Pass `--user $USERNUMBER:$GROUPID`, both numeric values from 1 to 65535:
+The realtime container can run as a non-root user with no loss of functionality. Pass `--user $USERNUMBER:$GROUPID`, both numeric values from 1 to 65535:
 
 ```bash
 docker run -it --user 100:100 \

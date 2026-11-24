@@ -144,7 +144,7 @@ Send audio only after `RecognitionStarted` has arrived.
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `message` | `"EndOfStream"` | Yes | |
-| `last_seq_no` | integer | Yes | Sequence number of the last audio message sent. |
+| `last_seq_no` | integer | Yes | The schema gives no description. Its example (`312`) is captioned "No more audio after the 312th AddAudio", so send the `seq_no` of the last acknowledged audio message. |
 
 ```json
 { "message": "EndOfStream", "last_seq_no": 312 }

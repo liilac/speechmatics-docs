@@ -186,6 +186,8 @@ resourceManager:
 
 The default shown routes any 17.x, 16.x or 15.x version, preferring 17.x. If you run a version outside this range, add it to `rtWorkersVersionConfig`.
 
+The Kubernetes docs cover only the Standard and Enhanced models. They do not describe deploying Melia 1 or Oak 1 with this chart; check the chart README before assuming support.
+
 ## Hardware
 
 Recommended Azure node sizes:

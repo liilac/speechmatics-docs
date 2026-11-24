@@ -191,6 +191,9 @@ API spec example with both speaker and channel data:
 - Segments typically equate to full sentences. Short utterances of 1-2 words can be combined with a neighboring sentence to form a segment.
 - Punctuation plays a significant role in accuracy. Avoid disabling end-of-sentence punctuation or reducing punctuation sensitivity.
 - Speaker or channel labels are only available if diarization is enabled. Without it, `"speaker": "UU"` is returned for each segment.
+- The docs page states that Speaker Change is not supported in combination with Sentiment. Speaker change detection itself was removed in July 2024 (per the batch diarization page), so this no longer applies to new configs.
+
+Schema note: the API spec's `SentimentAnalysisResult` schema nests `segments` and `summary` under an inner `sentiment_analysis` property (`sentiment_analysis.sentiment_analysis.segments`), while the spec's own example, the docs response example, and the docs Python sample all read them directly as `sentiment_analysis.segments` and `sentiment_analysis.summary`. Use the flat shape; tolerate the nested one if parsing defensively.
 
 ## Errors
 

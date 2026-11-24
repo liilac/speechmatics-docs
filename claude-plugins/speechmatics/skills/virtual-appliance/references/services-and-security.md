@@ -95,7 +95,7 @@ curl -sSL -u admin:admin -X 'POST' \
 }'
 ```
 
-Also available in the Management interface at `http://${APPLIANCE_HOST}/#/Management/Management_SetCleanupInterval`.
+Also available in the Management interface at `http://${APPLIANCE_HOST}/#/Management/Management_SetCleanupInterval`. (The docs give this path without `/docs`, but give the log download page as `http://${APPLIANCE_HOST}/docs/#/Management/ZipLogs`.)
 
 Cleanup removes all job data, including processed transcripts. Retrieve and store transcripts externally before they are deleted.
 

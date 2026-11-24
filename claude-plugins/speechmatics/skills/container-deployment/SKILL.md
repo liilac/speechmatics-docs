@@ -1,6 +1,6 @@
 ---
 name: container-deployment
-description: Deploys Speechmatics Speech to Text on-prem with Docker containers. Covers registry access (speechmaticspublic.azurecr.io), licensing (LICENSE_TOKEN, /license.json), CPU batch and realtime transcriber containers, GPU inference servers for Standard, Enhanced, Melia 1 and Oak 1, GPU translation, the language ID container, speaker identification secrets, the batch persistent worker HTTP API, read-only and non-root hardening, sizing and cost, troubleshooting, and automatic or offline usage reporting. Use when the user mentions on-prem, docker run, batch-asr-transcriber, rt-asr-transcriber, sm-gpu-inference-server, sm-asr-transcriber, SM_INFERENCE_ENDPOINT, SM_MAX_CONCURRENT_CONNECTIONS, SM_TRANSLATION_ENDPOINT, SM_EATS_URL, --run-mode http, --parallel, Triton, or the asr-usage container.
+description: Deploys Speechmatics Speech to Text on-prem with Docker containers. Covers registry access (speechmaticspublic.azurecr.io), licensing (LICENSE_TOKEN, /license.json), CPU batch and realtime transcriber containers, GPU inference servers for Standard, Enhanced, Melia 1 and Oak 1, GPU translation, the language ID container, speaker identification secrets, the batch persistent worker HTTP API, read-only and non-root hardening, sizing and cost, troubleshooting, and automatic or offline usage reporting. Use when the user mentions on-prem, docker run, batch-asr-transcriber, rt-asr-transcriber, sm-gpu-inference-server, sm-asr-transcriber, SM_INFERENCE_ENDPOINT, SM_ASR_MODE, SM_MAX_CONCURRENT_CONNECTIONS, SM_TRANSLATION_ENDPOINT, SM_EATS_URL, --run-mode http, --parallel, Triton, langid, or the asr-usage container.
 ---
 
 # Speechmatics container deployment
@@ -158,7 +158,7 @@ Set `"model": "melia-1"` or `"oak-1"` and `"language": "multi"` in `transcriptio
 | `SM_TRANSLATION_ENDPOINT` | Transcribers | gRPC endpoint of the translation inference server |
 | `SM_TRANSLATION_MAX_TARGET_LANGUAGES` | Transcribers | Max target languages per request. Default 5; `0` disables the limit |
 | `SM_SPEAKER_ID_SECRETS_DIR` | Transcribers | Directory in the container holding `s.<integer>` secret files |
-| `SM_ENABLE_USAGE_REPORTING` | Transcribers | `false`, `no` or `0` turns off automatic usage reporting |
+| `SM_ENABLE_USAGE_REPORTING` | Transcribers | Default `true`. `false`, `no` or `0` turns off automatic usage reporting when `SM_EATS_URL` is unset; with `SM_EATS_URL` set it sends the full activity event stream instead of the billing subset |
 | `SM_EATS_URL` | Transcribers | Usage event destination, for example `asr-usage.example.net:9090` |
 | `SM_JOB_ID`, `SM_LOG_DIR` | Batch transcriber | Write logs to `<SM_LOG_DIR>/<SM_JOB_ID>/` |
 | `DEBUG` | Realtime transcriber | `true` enables verbose logging |

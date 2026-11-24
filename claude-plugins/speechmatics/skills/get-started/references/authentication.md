@@ -130,6 +130,8 @@ The key is always issued for the project that owns the API key used to authentic
 
 `POST /v1/jwts` replaces the deprecated `POST /v1/api_keys` endpoint. Migrate any `/v1/api_keys` usage to `/v1/jwts`; `type`, `ttl`, `client_ref`, and `region` work the same way, and the response contains only `key_value`.
 
+Docs versus spec: the authentication page documents temporary keys only through `POST /v1/jwts` with `type` `batch` or `rt`. The Management API spec (`spec/mp.yaml`) separately documents `POST /v1/api-keys` (hyphen), which also issues a temporary key when `ttl` (60-86400) is set, accepts `type` `batch`, `rt`, or `tts`, returns `apikey_id` and `key_value`, and marks `region` as deprecated with no effect. Use `/v1/jwts` for temporary keys as the authentication page directs; see `speechmatics:account-administration` for `/v1/api-keys`.
+
 ### Batch temporary keys
 
 Use them so end users upload audio to Speechmatics directly. This can cut development effort, storage, and bandwidth cost.

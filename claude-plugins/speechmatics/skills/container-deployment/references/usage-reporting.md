@@ -32,6 +32,7 @@ Two transcriber settings control both modes.
 | unset | `true` (default) | Automatic reporting to `usage.speechmatics.com` |
 | unset | `false` | No destination; reporting is disabled entirely |
 | set to your usage container | `true` (default) | Offline reporting: the same billing events go to your usage container |
+| set | `false` | The full activity event stream, not only the billing subset, goes to that destination |
 
 ## What is recorded
 
@@ -204,9 +205,13 @@ docker run -it  \
 
 Set up backup policies for the volume. The usage container cannot recover a corrupted data file or volume by itself.
 
+The docs example publishes only port 8000. Transcribers must still be able to reach the ingest port (9090): the docs require you to open every port needed to send and extract data.
+
 ### Point transcribers at it
 
-Set `SM_EATS_URL` to the usage container's address and listening port, for example `SM_EATS_URL=asr-usage.example.net:9090` or `SM_EATS_URL=10.244.8.32:9090`. Leave `SM_ENABLE_USAGE_REPORTING` at its default of `true`.
+Set `SM_EATS_URL` to the usage container's address and listening port, for example `SM_EATS_URL=asr-usage.example.net:9090` or `SM_EATS_URL=10.244.8.32:9090`. Leave `SM_ENABLE_USAGE_REPORTING` at its default of `true`. Transcribers send to the usage container over HTTPS by default.
+
+The docs versions of the two examples below use the image tags `batch-asr-transcriber-en:8.2.0` and `rt-asr-transcriber-en:1.4.0`, while the compatibility list says realtime container 1.4.1 onwards. The tags here are the current release.
 
 Batch:
 
@@ -343,7 +348,7 @@ curl 'asr-usage.net:8000/v1/export?since=2020-01-01T00:00:00.000000Z&until=2020-
 
 - Output is compressed `json.gz`. Send it in that format.
 - If the export is too large, a 4XX response may be returned. In testing this happened at around 25,000 batch jobs or 5,000 hour-long realtime jobs. Use a smaller window.
-- To stay under 25MB per file, chunk by time: usually around 10,000 batch jobs or 1250 one-hour realtime sessions per file.
+- To stay under 25MB per file, chunk by time: usually around 10,000 batch jobs or 1250 one-hour realtime sessions per file. (The storage requirement in the same docs page says 25 MB holds up to 13,000 batch jobs; the docs give both figures.)
 
 Weekly export script for a month:
 

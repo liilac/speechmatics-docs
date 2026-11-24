@@ -130,7 +130,7 @@ Realtime `StartRecognition` message:
 - `"language": "auto"` returns an error. Use `multi`.
 - Supports output locale, including an array of locales on Batch and Realtime.
 - Supports language hints and per-language output.
-- Oak 1 is a standalone model, separate from Enhanced Medical. Do not set `domain` for Oak 1.
+- Oak 1 is a standalone model, separate from Enhanced Medical (`"domain": "medical"` on `enhanced`).
 - Oak 1 transcribes all individual Speechmatics languages. The medical terminology uplift applies to the languages in the medical table in [languages.md](languages.md).
 
 ## Regions and endpoints for Melia 1 and Oak 1
@@ -142,7 +142,7 @@ Realtime `StartRecognition` message:
 | AU1 (Australia) | `au1.asr.api.speechmatics.com` | `au.rt.speechmatics.com` |
 | Global | N/A | `global.rt.speechmatics.com` |
 
-For Batch, use only these endpoints (not EU2 or US2).
+For Batch, use only these endpoints (not EU2 or US2). The models page lists Regions as "All" for both models, while the authentication page states they are available on the EU1, US1, and AU1 Batch endpoints only.
 
 ## Melia 1 and Oak 1 feature gaps on Batch
 

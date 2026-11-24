@@ -1,0 +1,30 @@
+[
+  {
+    "prompt": "I'm running the Speechmatics sm-gpu-inference-server container on-prem and want rt-asr-transcriber clients to use it. What do I set SM_BATCH_MODE to, and what's the default? Keep it short.",
+    "expected_skill": "container-deployment",
+    "must_match": ["SM_BATCH_MODE\\s*=\\s*[\\\"'`]?false", "batch"],
+    "source": "docs/deployments/container/gpu-speech-to-text.mdx"
+  },
+  {
+    "prompt": "With the Speechmatics on-prem batch persistent worker I submit jobs with POST /v2/jobs. Which request header sets parallel_engines for a job, and what is the worker's default internal port? Answer concisely.",
+    "expected_skill": "container-deployment",
+    "must_match": ["X-SM-Processing-Data", "18000"],
+    "source": "docs/deployments/container/batch-persistent-worker.mdx"
+  },
+  {
+    "prompt": "My Speechmatics on-prem live transcription Docker container only accepts one connection at a time. How do I let a single container handle 10 simultaneous streams? Brief answer please.",
+    "expected_skill": "container-deployment",
+    "must_match": ["SM_MAX_CONCURRENT_CONNECTIONS"],
+    "source": "docs/deployments/container/cpu-speech-to-text.mdx"
+  },
+  {
+    "prompt": "We run Speechmatics transcription containers in an air-gapped network with no internet access. How do we record usage for billing, how do the transcribers get pointed at it, and where do we send the data? Keep it concise.",
+    "expected_skill": "container-deployment",
+    "must_match": [
+      "SM_EATS_URL",
+      "billing-reporting@speechmatics\\.com",
+      "asr-usage|usage container"
+    ],
+    "source": "docs/deployments/usage-reporting/offline.mdx"
+  }
+]

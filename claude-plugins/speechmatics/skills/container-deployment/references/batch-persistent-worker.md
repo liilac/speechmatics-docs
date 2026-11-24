@@ -122,7 +122,7 @@ A JSON object sent as a request header on `POST /v2/jobs`.
 
 ### `GET /jobs`
 
-Returns current engine usage and active jobs. Use `unused_engines` to decide how many engines to request for the next job.
+Returns current engine usage and active jobs. Use `unused_engines` to decide how many engines to request for the next job. The docs write this capacity endpoint as `/jobs`, without the `/v2` prefix used by the job endpoints (`/v2/jobs`).
 
 ```json
 {

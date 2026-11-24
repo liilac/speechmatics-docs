@@ -46,6 +46,10 @@ Make sure your network has no IP address conflict with these ranges.
 
 With HTTPS set up, expose only port 443 for `batch` mode, and ports 443 and 9004 for `realtime` mode.
 
+The docs table has its two footnotes swapped: the jobs row carries "Websocket service only available in `realtime` mode" and the WebSocket rows carry "Jobs service only available in `batch` mode". The table above uses the evident intent.
+
+For a static IP, the administration page points to the Ubuntu manual network docs, while the installation page gives the netplan steps in [IP configuration](#ip-configuration).
+
 The appliance has its own firewall that allows ingress only to the ports required for its Management, Monitoring and Speech APIs.
 
 ## Network interface mapping

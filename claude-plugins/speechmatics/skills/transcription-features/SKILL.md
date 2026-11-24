@@ -153,7 +153,7 @@ Blank cells: the docs do not state it.
 | Parameter | Values | Default |
 |---|---|---|
 | `output_locale` | `en-GB`, `en-US`, `en-AU`, `cmn-Hans`, `cmn-Hant`; an array for Melia 1 and Oak 1 | `cmn-Hans` for Mandarin |
-| `enable_entities` | boolean | `false` |
+| `enable_entities` | boolean | `false` per the docs page (`spec/realtime.yaml` lists `true` for Realtime; set it explicitly) |
 | `punctuation_overrides.permitted_marks` | list of marks, `["all"]`, or `[]` for none | all |
 | `punctuation_overrides.sensitivity` | `0` to `1` | `0.5` |
 | `transcript_filtering_config.remove_disfluencies` | boolean | `false` |
@@ -184,7 +184,7 @@ Returns supported languages, output locales, domains, translation pairs and lang
 - `entities_config` is only accepted when `enable_entities` is `true`.
 - PII Redaction cannot be combined with smart formatting entities, and redacted transcripts have no `spoken_form` or `written_form`.
 - The `pii` group is broad: it also redacts dates, times, amounts of money and organization names.
-- Translated output has no word timings, confidence scores, word tags or regional spelling.
+- Per the docs, timestamps, confidence scores, word tagging and regional spelling are only available in the original language. Translated sentences carry only sentence-level `start_time` and `end_time`.
 - Realtime sessions may take up to 5 seconds longer to close while translations finalize.
 - Disabling punctuation may slightly reduce speaker diarization accuracy. Keep punctuation at defaults for best translation quality.
 - Regex flags go inside the pattern: `/(?i)^hello$/` works, `/hello/i` is treated as a plain word.

@@ -7,7 +7,7 @@ Submit an audio file and a text file, and get back the timing of each word in th
 ## Check availability first
 
 - Alignment requires access. Contact Support (https://support.speechmatics.com) or your Account Manager.
-- The alignment page is not linked in the Batch docs sidebar, and the current Batch API spec lists `transcription` as the only job `type` and does not define the `/alignment`, `/text`, or `/data` endpoints. Everything below comes from the alignment docs page only. Confirm with Support that alignment is enabled for the account before building on it.
+- The alignment page is not linked in the Batch docs sidebar, and the current Batch API spec lists `transcription` as the only job `type` and does not define the `/alignment`, `/text`, or `/data` endpoints. A comment in `spec/batch.overlay.yaml` states that alignment jobs "no longer exist", and the docs build removes the alignment entries from the `/usage` example; the spec still carries leftovers (`fetch_text`, `text_name`, the `text` notification content, the `Job rejected due to invalid text` error). The alignment docs page describes the feature as available. Everything below comes from the alignment docs page only. Confirm with Support that alignment is enabled for the account before building on it.
 
 ## Input text
 

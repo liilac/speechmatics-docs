@@ -57,7 +57,7 @@ Recommended: 16 vCPUs and 32GB RAM for both modes. See [references/installation.
 1. Download the `.ova` for the mode you need from the Support Portal knowledge base.
 2. Import it into your hypervisor and size the VM. See [references/installation.md](references/installation.md).
 3. Map the network adapter before first boot. The appliance acquires an IP address with DHCP by default.
-4. Boot. Allow up to 4-5 minutes for the login screen.
+4. Boot. Allow up to 4-5 minutes for the login screen (documented for Proxmox).
 5. Change the defaults: SSH `smadmin` / `changeme`, Management API `admin` / `admin`.
 6. Apply the license.
 7. Check health, then run a smoke test.
@@ -118,6 +118,7 @@ Base URL: `http(s)://${APPLIANCE_HOST}`. HTTP basic authentication with username
 | GET | `/v2/management/host/about` | Version, variant, installed languages | services-and-security |
 | GET, POST, DELETE | `/v2/management/license` | Check, apply, remove the license | licensing |
 | POST | `/v2/management/usagereporting` | Usage reporting mode and proxy | licensing |
+| GET | `/v1/export?since=...&until=...` | Export offline usage data (`json.gz`) | licensing |
 | GET | `/v2/management/cpuinfo` | CPU model, cores, flags | installation |
 | GET | `/v2/management/meminfo` | RAM usage | monitoring-and-logs |
 | GET | `/v2/management/nodeinfo` | Kubernetes node labels, including GPU | scaling-and-gpu |
@@ -160,11 +161,12 @@ With HTTPS set up, expose only 443 for `batch` mode, and 443 and 9004 for `realt
 | Setting | Endpoint | Values and defaults |
 | --- | --- | --- |
 | `scaling_mode` | `/v2/management/host/scaling` | `simple` (one thread per job) or `adaptive` (up to 4 threads by audio length; needs at least 4 cores) |
-| `gpu_enabled` | `/v2/management/host/gpu`, `/v2/management/host/realtime/gpu` | `true` or `false`. Disabled by default |
+| `gpu_enabled` | `/v2/management/host/gpu`, `/v2/management/host/realtime/gpu` | `true` or `false`. Batch: disabled by default |
 | `primary_operating_point` | `/v2/management/host/gpu/config` | `standard` or `enhanced` |
 | `max_jobs` | `/v2/management/host/gpu/config` | Suggested: 48 for standard, 28 for enhanced |
 | `max_streams` | `/v2/management/host/realtime/gpu/config` | Suggested starting point: 64 for standard, 16 for enhanced |
-| `max_thread_count` | `/v2/management/host/langid` | `0` disables Language Identification (default) |
+| `max_thread_count` | `/v2/management/host/langid` | `0` disables Language Identification, which is disabled by default |
+| `mode` | `/v2/management/usagereporting` | `online` (default) or `offline`. Optional `proxy` URL |
 | `memory_per_thread` | `/v2/management/host/langid` | Optional. Default `3Gi` |
 | `minutes` | `/v2/management/cleanupinterval` | Default cleanup is every 24 hours |
 | `user_token` | `/v2/security/jobtoken` | No transcription authentication by default |
@@ -190,7 +192,7 @@ With HTTPS set up, expose only 443 for `batch` mode, and 443 and 9004 for `realt
 ## References
 
 - [references/installation.md](references/installation.md): system requirements, per-stream resources, IOPS, downloading the OVA, importing on ESXi, Workstation, AWS and Proxmox, first boot, health checks, and smoke tests. Read when sizing or importing an appliance.
-- [references/licensing.md](references/licensing.md): applying, checking, and removing a license, license feature codes, usage reporting, and proxies. Read for any license question.
+- [references/licensing.md](references/licensing.md): applying, checking, and removing a license, license feature codes, online and offline usage reporting, exporting usage data, and proxies. Read for any license question.
 - [references/networking-and-ssl.md](references/networking-and-ssl.md): interface mapping, static IP with netplan, cloud-init, DHCP reservation, subnets, firewall ports, HTTPS, certificate upload, disabling HTTP, resets, and TLS versions and cipher suites. Read when configuring the network or TLS.
 - [references/services-and-security.md](references/services-and-security.md): about and health endpoints, restart and shutdown, cleanup interval, admin password, transcription token, SSH access, at-rest encryption, and troubleshooting. Read for day-to-day administration and failures.
 - [references/scaling-and-gpu.md](references/scaling-and-gpu.md): `scaling_mode`, Realtime sessions and readiness, GPU enablement and configuration, `nodeinfo`, adding and removing languages, and Language Identification. Read when tuning throughput or changing languages.

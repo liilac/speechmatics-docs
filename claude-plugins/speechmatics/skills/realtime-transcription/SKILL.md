@@ -46,7 +46,7 @@ Pin a regional endpoint for data residency; the global endpoint may route to any
 3. Wait for `RecognitionStarted`.
 4. Send audio as binary WebSocket messages (`AddAudio`). The server acknowledges each with `AudioAdded` carrying an incrementing `seq_no`.
 5. Receive `AddPartialTranscript` (if enabled) and `AddTranscript` as audio is processed.
-6. Send `EndOfStream` with `last_seq_no` set to the number of `AddAudio` messages sent.
+6. Send `EndOfStream` with `last_seq_no` (the schema example reads "No more audio after the 312th AddAudio" for `312`).
 7. Receive the remaining `AddTranscript` messages, then `EndOfTranscript`. Close the connection.
 
 After any `Error` message the transcription is terminated and the connection is closed.
@@ -211,6 +211,7 @@ Read text from `metadata.transcript` for ready-formatted output, or iterate `res
 ## Gotchas
 
 - Do not send audio before `RecognitionStarted`.
+- Docs snippets that begin `"type": "transcription"` show only the config: `StartRecognition` has no `type` field, so copy just the `transcription_config` part.
 - Partial accuracy is usually 10–25% lower than Finals, and `confidence` on Partials has no meaning. Partial latency is not affected by `max_delay`.
 - With `max_delay_mode: "fixed"`, entities such as numbers can be split across Finals ("I am 30 five.").
 - Sending audio faster than real time can fill buffers and drop the connection; watch the WebSocket `bufferedAmount`. A growing backlog ends in a `job_error`.

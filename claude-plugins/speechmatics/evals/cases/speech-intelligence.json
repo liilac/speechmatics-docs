@@ -1,0 +1,26 @@
+[
+  {
+    "prompt": "For Speechmatics summarization_config in a batch job, what are the allowed values for content_type, summary_length and summary_type, and which summary_length is the default? Concise answer.",
+    "expected_skill": "speech-intelligence",
+    "must_match": ["informative", "conversational", "paragraphs"],
+    "source": "spec/batch.yaml"
+  },
+  {
+    "prompt": "I submitted a Speechmatics batch job with 12 entries in topic_detection_config.topics. The job finished and I got a transcript, but there is no topics section. Why, and where in the response is the error reported? Keep it short.",
+    "expected_skill": "speech-intelligence",
+    "must_match": ["topic_detection_errors", "\\b10\\b"],
+    "source": "docs/speech-to-text/batch/speech-intelligence/topic-detection.mdx"
+  },
+  {
+    "prompt": "Using Speechmatics, I want to know whether each sentence in a recorded customer support call was positive, negative or neutral, broken down by who was speaking. What do I need to add to the transcription job config, and where do the results appear in the output? Concise please.",
+    "expected_skill": "speech-intelligence",
+    "must_match": ["sentiment_analysis_config", "diarization"],
+    "source": "docs/speech-to-text/batch/speech-intelligence/sentiment-analysis.mdx"
+  },
+  {
+    "prompt": "I have hour-long podcast recordings and want Speechmatics to automatically split each one into titled sections with timestamps and a short description of each section. What do I add to the job config, and what does each returned item contain? Short answer.",
+    "expected_skill": "speech-intelligence",
+    "must_match": ["auto_chapters_config", "start_time", "title"],
+    "source": "docs/speech-to-text/batch/speech-intelligence/auto-chapters.mdx"
+  }
+]

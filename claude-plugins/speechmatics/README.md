@@ -45,3 +45,13 @@ When a docs page changes, update the skill that covers it. Validate the plugin b
 ```bash
 claude plugin validate . --strict
 ```
+
+## Test
+
+`evals/cases/` holds four prompts per skill, each with the facts a correct answer must contain. The runner sends each prompt to `claude -p` and checks that Claude loads the expected skill and gives those facts. Install the plugin first, then run:
+
+```bash
+python3 claude-plugins/speechmatics/evals/run.py
+```
+
+Pass a filter to run one skill, for example `run.py batch`. Each case is a real Claude request, so a full run costs a few dollars.

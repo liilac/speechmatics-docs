@@ -31,7 +31,7 @@ Do not use this skill for:
 
 ## Prerequisites
 
-- A Speechmatics API key from the portal (https://portal.speechmatics.com/settings/api-keys). Every integration reads it from `SPEECHMATICS_API_KEY` or takes it as `api_key`.
+- A Speechmatics API key from the portal (https://portal.speechmatics.com/settings/api-keys). LiveKit, Pipecat, and the Twilio proxy read it from `SPEECHMATICS_API_KEY` (LiveKit and Pipecat also accept `api_key=`); Vapi and Zapier take it in their dashboards.
 - LiveKit and Pipecat quickstarts: Python 3.10+ and an OpenAI API key (`OPENAI_API_KEY`) for the LLM.
 - LiveKit: a LiveKit Cloud account, or self-hosted LiveKit with `LIVEKIT_URL`, `LIVEKIT_API_KEY`, `LIVEKIT_API_SECRET`.
 

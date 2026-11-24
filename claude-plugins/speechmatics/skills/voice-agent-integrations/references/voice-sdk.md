@@ -201,7 +201,7 @@ presets = VoiceAgentConfigPreset.list_presets()
 
 Presets include defaults for all settings (language defaults to English). To change the language or any other setting, use a custom configuration, or use a preset as a starting point and customize it with an overlay.
 
-Pass a preset to the client by name (`preset="scribe"` in the quickstart) or build a config from `VoiceAgentConfigPreset.<NAME>(...)`. Preset name strings other than `"scribe"` and `"external"` are not confirmed by the docs page; call `VoiceAgentConfigPreset.list_presets()` to get the exact names for your SDK version.
+Pass a preset to the client by name (`preset="scribe"` in the quickstart) or build a config from `VoiceAgentConfigPreset.<NAME>(...)`. The docs page names the presets as above and uses the strings `"scribe"` and `"external"`. A sample file in the docs repo that the page does not render (`assets/presets.py`) instead passes `preset="external"`, `"scribe"`, `"low_latency"`, `"conversation_adaptive"`, `"conversation_smart_turn"`, and `"captions"`. The two sets disagree, so call `VoiceAgentConfigPreset.list_presets()` to get the exact names for your SDK version.
 
 ### Custom configuration
 

@@ -268,7 +268,7 @@ Deleting a completed job has no effect on reported usage.
 
 Docs: https://docs.speechmatics.com/api-ref/batch/get-the-transcript-for-a-transcription-job
 
-Produces `application/json`, `application/vnd.speechmatics.v2+json`, or `text/plain`.
+Produces `application/json`, `application/vnd.speechmatics.v2`, `application/vnd.speechmatics.v2+json`, or `text/plain`.
 
 | Parameter | In | Type | Notes |
 |---|---|---|---|
@@ -326,7 +326,7 @@ curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/usage?since=2023-01-01&u
     -H "Authorization: Bearer $API_KEY"
 ```
 
-This returns usage for all jobs completed from the start of 1 January 2023 to the end of 31 December 2023.
+This returns usage for all jobs completed from the start of 1 January 2023 to the end of 31 December 2023. (The usage page then restates the range as "at or after 2023-01-01T00:00Z and before 2023-01-01T00:00Z", which contradicts this; the spec defines both `since` and `until` as inclusive dates.)
 
 Response `200` (`UsageResponse`):
 

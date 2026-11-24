@@ -1,0 +1,33 @@
+[
+  {
+    "prompt": "Using the Speechmatics Management API with a management token, give me the curl command to create a permanent API key for project_id 12345. Just the command and one line of explanation.",
+    "expected_skill": "account-administration",
+    "must_match": [
+      "mp\\.speechmatics\\.com/v1/api-keys",
+      "project_id",
+      "Authorization: Bearer"
+    ],
+    "source": "spec/mp.yaml"
+  },
+  {
+    "prompt": "On the Speechmatics Management API, what status does DELETE /projects/{project_id} return on success, and what is the most likely cause of a 403 from it? Concise answer.",
+    "expected_skill": "account-administration",
+    "must_match": ["204", "outstanding payment"],
+    "source": "spec/mp.yaml"
+  },
+  {
+    "prompt": "We're a SaaS reseller and want to give each of our customers a separate project in our Speechmatics workspace. Is there a cap on how many projects one workspace can have? Short answer.",
+    "expected_skill": "account-administration",
+    "must_match": ["1,?000"],
+    "source": "docs/administration/projects.mdx"
+  },
+  {
+    "prompt": "We're on the Speechmatics Pro plan and our transcription volume is growing. At what monthly usage does the automatic volume discount start applying, and is it counted across everything or per product? Keep it brief.",
+    "expected_skill": "account-administration",
+    "must_match": [
+      "500\\s*hours",
+      "product type|per product|each .*product|processing mode and model"
+    ],
+    "source": "docs/administration/plans.mdx"
+  }
+]

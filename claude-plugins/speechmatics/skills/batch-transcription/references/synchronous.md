@@ -5,7 +5,7 @@ Docs: https://docs.speechmatics.com/speech-to-text/batch/synchronous
 The `wait` query parameter blocks a request until the job reaches a terminal state (`done`, `rejected`, or `deleted`), so you can get a transcript in one call instead of polling. It applies to job creation, job status, and transcript retrieval.
 
 - `wait` is available on SaaS on Cloud only. On-prem deployments do not support it.
-- `wait` is an integer number of seconds, minimum 0, capped server-side. The cap is not published.
+- `wait` is an integer number of seconds, minimum 0, capped server-side. The docs and spec do not state the cap.
 - If the job has not finished when `wait` elapses, the request returns the current state. Retry to keep waiting.
 
 | Endpoint | Default when `wait` is omitted | On success within `wait` | When `wait` elapses |

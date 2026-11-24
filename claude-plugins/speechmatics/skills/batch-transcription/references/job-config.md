@@ -217,7 +217,7 @@ curl -L -X POST "https://eu1.asr.api.speechmatics.com/v2/jobs/?sm-app=${APP_ID}"
     -F config='{"type": "transcription","transcription_config": { "model": "enhanced","language": "en" }}'
 ```
 
-The JavaScript client takes an `appId` option in the `BatchClient` constructor.
+The JavaScript client samples pass an `appId` option to the `BatchClient` constructor. The docs do not state whether it maps to `sm-app`.
 
 ## On-prem only: `X-SM-Processing-Data` header
 

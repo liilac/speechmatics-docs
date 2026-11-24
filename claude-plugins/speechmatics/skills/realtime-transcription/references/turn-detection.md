@@ -12,13 +12,15 @@ Use end of utterance detection to detect when a person has finished speaking, fo
 | Client-side turn detection | Send `ForceEndOfUtterance` | Enhanced, Standard, Melia 1, Oak 1 |
 | Semantic turn detection | Combine silence-based detection with conversation context in the application | See the linked guide |
 
-Melia 1 and Oak 1 do not support automatic silence-based detection and reject `end_of_utterance_silence_trigger` in `conversation_config`. Omit it and send `ForceEndOfUtterance` from the client.
+Melia 1 and Oak 1 do not support automatic silence-based detection and reject `end_of_utterance_silence_trigger` in `conversation_config`. Omit it and send `ForceEndOfUtterance` from the client. (The opening paragraph of the turn detection page names only Melia 1 as unsupported; the same page's client-side section and the API schema name both Melia 1 and Oak 1.)
 
 ## Silence-based end of utterance
 
 The server uses word timings to detect periods without speech. When a word is detected, a countdown begins. A new word restarts it. If the configured interval passes without another word, an end of utterance is triggered: the server sends a Final transcript (`AddTranscript`), followed by an `EndOfUtterance` message.
 
 ### Configuration
+
+The `"type": "transcription"` wrapper below is as shown in the docs; `StartRecognition` itself has no `type` field, so send only the `transcription_config` part. See [configuration.md](configuration.md).
 
 ```json
 {

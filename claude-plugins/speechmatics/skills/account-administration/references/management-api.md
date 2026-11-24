@@ -335,6 +335,7 @@ curl -L -X POST "https://mp.speechmatics.com/v1/jwts?type=rt" \
 
 - That page states `POST /v1/jwts` replaces the deprecated `POST /v1/api_keys` endpoint, returns only `key_value`, and accepts `type` values `batch` (default) and `rt`.
 - On `/v1/jwts`, `region` (`eu` default, `usa`, `au`) is significant for `batch` keys: the key is valid only in that region.
+- Docs versus spec: the authentication page names the deprecated endpoint `POST /v1/api_keys` (underscore) and lists `type` values `batch` and `rt` only. The spec path is `POST /v1/api-keys` (hyphen); it is not marked deprecated, still documents temporary keys through `ttl`, adds `type=tts`, and says `region` has no effect.
 - Prefer `/v1/jwts` for temporary keys and `POST /v1/api-keys` with a management token for permanent keys.
 
 Full temporary key guidance is in `speechmatics:get-started`.

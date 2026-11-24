@@ -1,0 +1,32 @@
+[
+  {
+    "prompt": "In the Speechmatics LiveKit plugin I set turn_detection_mode=speechmatics.TurnDetectionMode.VAD on speechmatics.STT, but the agent never responds after I stop talking. What else must I set on the AgentSession? Concise answer with a snippet.",
+    "expected_skill": "voice-agent-integrations",
+    "must_match": [
+      "TurnHandlingOptions",
+      "turn_detection\\s*=\\s*[\"']stt[\"']"
+    ],
+    "source": "docs/integrations-and-sdks/livekit/stt.mdx"
+  },
+  {
+    "prompt": "For Pipecat's SpeechmaticsSTTService, what is the default WebSocket endpoint it connects to, and which environment variable can I set instead of base_url to point it at another Speechmatics region? One or two lines.",
+    "expected_skill": "voice-agent-integrations",
+    "must_match": [
+      "eu2\\.rt\\.speechmatics\\.com/v2/agent",
+      "SPEECHMATICS_RT_URL"
+    ],
+    "source": "docs/integrations-and-sdks/pipecat/stt.mdx"
+  },
+  {
+    "prompt": "I want live transcripts of both sides of a Twilio phone call using Speechmatics. Is there an official example I can clone, do I have to convert Twilio's audio before sending it, and how are the two callers kept apart? Keep it brief.",
+    "expected_skill": "voice-agent-integrations",
+    "must_match": ["speechmatics-twilio-integration", "channel", "inbound"],
+    "source": "docs/integrations-and-sdks/twilio.mdx"
+  },
+  {
+    "prompt": "My LiveKit voice agent uses Speechmatics for speech recognition. A returning user gets a different speaker label each session. How do I keep the same labels across sessions? Short answer with code.",
+    "expected_skill": "voice-agent-integrations",
+    "must_match": ["get_speaker_ids", "known_speakers"],
+    "source": "docs/integrations-and-sdks/livekit/stt.mdx"
+  }
+]

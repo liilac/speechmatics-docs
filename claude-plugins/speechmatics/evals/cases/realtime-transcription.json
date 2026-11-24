@@ -1,0 +1,34 @@
+[
+  {
+    "prompt": "In the Speechmatics Realtime API, what is the allowed range and the default for max_delay in transcription_config? One or two sentences please.",
+    "expected_skill": "realtime-transcription",
+    "must_match": ["0\\.7", "\\b4(\\.0)?\\b"],
+    "source": "docs/speech-to-text/realtime/output.mdx"
+  },
+  {
+    "prompt": "My Speechmatics Realtime WebSocket (wss://eu.rt.speechmatics.com/v2) keeps closing with code 4005. What does that code mean and how long should I wait before retrying? Keep it brief.",
+    "expected_skill": "realtime-transcription",
+    "must_match": ["quota_exceeded", "5\\s*(–|-|to)\\s*10"],
+    "source": "docs/api-ref/_realtime-connection-close.mdx"
+  },
+  {
+    "prompt": "I'm streaming live microphone audio to Speechmatics for transcription and the stream is sometimes silent for long stretches. How long can I go without sending any audio before they end the session, what's the maximum session length, and what WebSocket close code will I see? Short answer please.",
+    "expected_skill": "realtime-transcription",
+    "must_match": [
+      "48[\\s-]*h",
+      "((1|one|an)[\\s-]*hour|60[\\s-]*min)",
+      "1008"
+    ],
+    "source": "docs/speech-to-text/realtime/limits.mdx"
+  },
+  {
+    "prompt": "I'm using Speechmatics live streaming transcription with the enhanced model in a voice app. I want the server to tell me when the user has stopped talking for about half a second. What do I add to my start message, and what message comes back? Concise answer with a small JSON snippet.",
+    "expected_skill": "realtime-transcription",
+    "must_match": [
+      "end_of_utterance_silence_trigger",
+      "conversation_config",
+      "EndOfUtterance"
+    ],
+    "source": "docs/speech-to-text/realtime/turn-detection.mdx"
+  }
+]

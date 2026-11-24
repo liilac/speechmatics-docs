@@ -72,7 +72,7 @@ Host: collector.example.org
 | `fetch_error` | The data file could not be fetched from a URL |
 | `trim_error` | The audio file could not be processed prior to transcription |
 
-The user agent is `Speechmatics-API/2.0`.
+The user agent is `Speechmatics-API/2.0` (`Speechmatics API V2` in older API versions, per the API spec).
 
 ### Body and MIME type
 

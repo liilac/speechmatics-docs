@@ -43,6 +43,8 @@ Melia 1 and Oak 1 accept an array, one locale per language in the audio. Works i
 
 Each locale must belong to a different language. Two locales for the same language (`en-GB` with `en-US`) are rejected.
 
+The docs page documents the array form; `spec/batch.yaml` and `spec/realtime.yaml` still type `output_locale` as a string only.
+
 ## Profanities
 
 Tagged automatically for English (`en`), Italian (`it`) and Spanish (`es`):
@@ -192,7 +194,7 @@ All other characters, including `\`, are inserted as written. Refer to a named g
 - Lookahead and lookbehind: `(?=...)`, `(?<!...)`
 - Backreferences: `(.)\1`
 - Named groups written as `(?<name>...)`. Use `(?P<name>...)`.
-- `\u` escapes such as `é`. Use the character itself or `\x{e9}`.
+- `\u` escapes such as `\u00e9`. Use the character itself or `\x{e9}`.
 
 An invalid rule, unsupported RE2 syntax, or an empty pattern (`//`) fails the request before transcription starts. The error names the rule and the reason.
 

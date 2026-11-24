@@ -2,7 +2,8 @@
 """Run the skill evals against a local install of the speechmatics plugin.
 
 Each case in cases/<skill>.json is a prompt sent to `claude -p` in an empty
-directory. A case passes when Claude loads the expected skill and the answer
+directory. A case passes when Claude loads the expected skill (or one of them,
+when `expected_skill` is a list) and the answer
 matches every regex in `must_match`.
 
 Usage:
@@ -40,7 +41,17 @@ def run_case(case):
     with tempfile.TemporaryDirectory() as cwd:
         try:
             proc = subprocess.run(
-                ["claude", "-p", case["prompt"], "--output-format", "stream-json", "--verbose"],
+                [
+                    "claude",
+                    "-p",
+                    case["prompt"],
+                    "--output-format",
+                    "stream-json",
+                    "--verbose",
+                    # Skills keep detail in references/; let Claude read them.
+                    "--allowedTools",
+                    "Read,Grep,Glob",
+                ],
                 cwd=cwd,
                 capture_output=True,
                 text=True,
@@ -62,9 +73,10 @@ def run_case(case):
         elif event.get("type") == "result" and event.get("subtype") != "success":
             error = event.get("subtype")
     answer = "\n".join(texts)
-    expected = f"{PLUGIN}:{case['expected_skill']}"
+    expected = case["expected_skill"]
+    expected = [expected] if isinstance(expected, str) else expected
     missing = [p for p in case["must_match"] if not re.search(p, answer, re.I | re.S)]
-    triggered = expected in skills
+    triggered = any(f"{PLUGIN}:{name}" in skills for name in expected)
     return {
         **case,
         "skills": skills,

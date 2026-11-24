@@ -427,6 +427,8 @@ session = AgentSession(
 uv add "livekit-agents[speechmatics]~=1.4"
 ```
 
+The TTS page pins `~=1.4`, while the quickstart and STT pages pin `~=1.8.11` and Linden 1 needs v1.8.2 or later. Use the `~=1.8.11` pin when the same agent uses Speechmatics STT.
+
 ### Usage
 
 ```python
@@ -456,5 +458,5 @@ For available voices and detailed TTS options, see `speechmatics:text-to-speech`
 | Agent never responds in `VAD` mode | `AgentSession` is missing `turn_handling=TurnHandlingOptions(turn_detection="stt")` |
 | `ValueError` at construction | `sample_rate` is not `8000` or `16000`, or `audio_encoding` is not `PCM_S16LE` |
 | Warnings about deprecated or unrecognized parameters | Rename or remove them per [Deprecated parameters](#deprecated-parameters) |
-| Connected to the wrong API | `base_url` must use the `/v2/agent` path; `/v2` is the streaming endpoint |
+| Custom `base_url` | Agent STT is served on `/v2/agent`; `/v2` is the streaming endpoint. The docs also say the SDK appends `/agent` when the URL omits it |
 | Linden 1 unavailable | Upgrade to LiveKit Agents v1.8.2 or later |

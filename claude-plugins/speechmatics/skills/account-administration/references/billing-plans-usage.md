@@ -115,6 +115,8 @@ Usage is shown in two charts, **Realtime** and **Batch**, matching the processin
 | Batch | Standard, Enhanced, Melia 1, Oak 1 |
 | Agent STT | Linden 1 |
 
+The usage page describes two charts (**Realtime** and **Batch**) but also lists agent STT (Linden 1) as a third mode in its model list.
+
 The Enhanced Medical and agent variants are reported under their underlying model, not as separate lines. For example, Batch usage on Enhanced Medical appears under Enhanced.
 
 ### Track usage with the API

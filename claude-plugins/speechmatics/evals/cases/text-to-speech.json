@@ -1,0 +1,29 @@
+[
+  {
+    "prompt": "What values does the output_format query parameter accept on the Speechmatics text to speech API, and which is the default? One line.",
+    "expected_skill": "text-to-speech",
+    "must_match": ["wav_16000", "pcm_16000"],
+    "source": "docs/text-to-speech/quickstart.mdx"
+  },
+  {
+    "prompt": "Give me a single curl command that calls the Speechmatics TTS generate endpoint with the theo voice and saves the result to a file. No explanation needed.",
+    "expected_skill": "text-to-speech",
+    "must_match": [
+      "preview\\.tts\\.speechmatics\\.com/generate/theo",
+      "Authorization:\\s*Bearer"
+    ],
+    "source": "docs/text-to-speech/quickstart.mdx"
+  },
+  {
+    "prompt": "Which voices can I choose from when turning text into spoken audio with Speechmatics, and what accents are they? Short list please.",
+    "expected_skill": "text-to-speech",
+    "must_match": ["sarah", "megan", "jack"],
+    "source": "docs/text-to-speech/quickstart.mdx"
+  },
+  {
+    "prompt": "I want Speechmatics to read my text aloud and return headerless raw audio samples for my audio pipeline. How do I ask for that, and what sample rate and bit depth will I get? Brief answer.",
+    "expected_skill": "text-to-speech",
+    "must_match": ["pcm_16000", "16\\s?kHz|16[,]?000\\s?Hz", "16[\\s-]?bit"],
+    "source": "docs/text-to-speech/quickstart.mdx"
+  }
+]

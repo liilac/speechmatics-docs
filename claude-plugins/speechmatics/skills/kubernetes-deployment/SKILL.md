@@ -1,6 +1,6 @@
 ---
 name: kubernetes-deployment
-description: Deploys Speechmatics Realtime Speech to Text on Kubernetes with the sm-realtime Helm chart. Covers prerequisites (registry and Helm login, speechmatics-registry and speechmatics-license secrets, private registry mirroring, Nvidia device plugin), exposing proxy-service through Gateway API (HTTPRoute, ListenerSet, NGINX Gateway Fabric) or an Ingress, request IDs, install, validation with kubectl get sessiongroups, values for languages, inference server recipes, models and autoscaling, version selection, upgrade, rollback and uninstall. Use when the user mentions Kubernetes, k8s, Helm, helm upgrade --install, values.yaml, sm-charts/sm-realtime, SessionGroups, proxy.ingress.hostname, proxy.httproute, global.imageRegistry, inferenceServerEnhancedRecipe1, scaleOnCapacityLeft, or rtWorkersVersionConfig.
+description: Deploys Speechmatics Realtime Speech to Text on Kubernetes with the sm-realtime Helm chart. Covers prerequisites (registry and Helm login, speechmatics-registry and speechmatics-license secrets, private registry mirroring, Nvidia device plugin), exposing proxy-service through Gateway API (HTTPRoute, ListenerSet, NGINX Gateway Fabric) or an Ingress, request IDs, install, validation with kubectl get sessiongroups, values for languages, inference server recipes, models and autoscaling, version selection, upgrade, rollback and uninstall. Use when the user mentions Kubernetes, k8s, Helm, helm upgrade --install, values.yaml, sm-charts/sm-realtime, SessionGroups, ingress-nginx, proxy.ingress.hostname, proxy.httproute, global.imageRegistry, inferenceServerEnhancedRecipe1, scaleOnCapacityLeft, or rtWorkersVersionConfig.
 ---
 
 # Speechmatics on Kubernetes
@@ -18,7 +18,7 @@ Chart version `1.5.0` is current at time of writing; check the docs.
 
 The Kubernetes deployment supports Realtime only. Use a sibling skill instead for:
 
-- Single Docker containers, batch on-prem, GPU inference server details, usage reporting, container environment variables: `speechmatics:container-deployment`.
+- Single Docker containers, batch on-prem, GPU inference server details, usage reporting, container environment variables, container health probe endpoints, and non-root or `emptyDir` settings for your own pod specs: `speechmatics:container-deployment`.
 - The virtual appliance: `speechmatics:virtual-appliance`.
 - Realtime WebSocket messages and client code: `speechmatics:realtime-transcription`.
 - Feature config: `speechmatics:transcription-features`.
