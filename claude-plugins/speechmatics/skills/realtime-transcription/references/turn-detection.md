@@ -104,7 +104,7 @@ import asyncio
 
 API_KEY = "YOUR_API_KEY"
 LANGUAGE = "en"
-CONNECTION_URL = f"wss://eu.rt.speechmatics.com/v2"
+CONNECTION_URL = f"wss://au.rt.speechmatics.com/v2"
 
 # Audio recording parameters
 SAMPLE_RATE = 16000
@@ -247,7 +247,7 @@ import speechmatics
 API_KEY = "YOUR_API_KEY"
 PATH_TO_FILE = "example.wav"
 LANGUAGE = "en"
-CONNECTION_URL = "wss://eu.rt.speechmatics.com/v2"
+CONNECTION_URL = "wss://au.rt.speechmatics.com/v2"
 
 # Create a transcription client
 ws = speechmatics.client.WebsocketClient(

@@ -7,7 +7,7 @@ Returns the current capabilities of the service so an application can pick up ne
 ## Request
 
 ```
-curl "https://eu1.asr.api.speechmatics.com/v1/discovery/features"
+curl "https://au1.asr.api.speechmatics.com/v1/discovery/features"
 ```
 
 A plain GET. The docs example sends no authorization header.

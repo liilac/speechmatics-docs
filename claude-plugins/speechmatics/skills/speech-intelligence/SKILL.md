@@ -66,13 +66,13 @@ All four in one job:
 API_KEY="YOUR_API_KEY"
 PATH_TO_FILE="example.wav"
 
-curl -L -X POST "https://eu1.asr.api.speechmatics.com/v2/jobs/" \
+curl -L -X POST "https://au1.asr.api.speechmatics.com/v2/jobs/" \
 -H "Authorization: Bearer ${API_KEY}" \
 -F data_file=@${PATH_TO_FILE} \
 -F config='{"type": "transcription","transcription_config": { "model":"enhanced", "language": "en" },"summarization_config": {}}'
 
 # When the job is done, fetch the default JSON transcript and read .summary.content
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript" \
 -H "Authorization: Bearer ${API_KEY}"
 ```
 
@@ -90,7 +90,7 @@ PATH_TO_FILE = "example.wav"
 LANGUAGE = "en"  # Transcription language
 
 settings = ConnectionSettings(
-    url="https://eu1.asr.api.speechmatics.com/v2",
+    url="https://au1.asr.api.speechmatics.com/v2",
     auth_token=API_KEY,
 )
 

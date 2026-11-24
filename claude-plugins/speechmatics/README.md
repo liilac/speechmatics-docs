@@ -36,6 +36,10 @@ Claude loads a skill when a request matches its description. To invoke one direc
 | `account-administration` | Manage workspaces, projects, members, API keys, billing, and usage |
 | `accuracy-benchmarking` | Measure Word Error Rate (WER) and benchmark transcription accuracy |
 
+## Default region
+
+The skills default to the AU1 (Australia) endpoints: `au1.asr.api.speechmatics.com` for the Batch API and `au.rt.speechmatics.com` for the Realtime API and agent STT. The docs samples use EU1. To change the default, edit the "Regions and endpoints" section of `skills/get-started/SKILL.md` and the sample hostnames in the other skills.
+
 ## Maintain
 
 Each skill lives in `skills/<skill-name>/`. `SKILL.md` holds the core instructions, and `references/` holds the detail Claude reads on demand.

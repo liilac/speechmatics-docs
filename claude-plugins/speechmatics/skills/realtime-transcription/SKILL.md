@@ -33,10 +33,10 @@ Use a sibling skill instead when:
 | US1 | `wss://us.rt.speechmatics.com/v2` |
 | AU1 | `wss://au.rt.speechmatics.com/v2` |
 
-Pin a regional endpoint for data residency; the global endpoint may route to any region.
+This skill defaults to AU1 (`wss://au.rt.speechmatics.com/v2`); the docs samples use EU1. Switch region only when the user asks. The global endpoint may route to any region, so avoid it when data must stay in one region.
 
 - Server side: send `Authorization: Bearer YOUR_API_KEY` on the handshake request.
-- Browser: pass a Realtime temporary key as a query parameter, `wss://global.rt.speechmatics.com/v2?jwt=<temporary-key>`. Never ship the long-lived API key to a browser. See `speechmatics:get-started` for creating temporary keys.
+- Browser: pass a Realtime temporary key as a query parameter, `wss://au.rt.speechmatics.com/v2?jwt=<temporary-key>`. Never ship the long-lived API key to a browser. See `speechmatics:get-started` for creating temporary keys.
 - Handshake responses: `101` connected, `400` malformed request, `401` invalid API key or temporary key, `405` method is not `GET`.
 
 ## Session flow

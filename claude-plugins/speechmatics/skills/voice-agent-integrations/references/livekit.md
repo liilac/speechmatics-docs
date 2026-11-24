@@ -188,7 +188,7 @@ Default: `wss://eu2.rt.speechmatics.com/v2/agent`. Set `base_url` to reach a dif
 ```python
 stt = speechmatics.STT(
     # The /v2/agent path is required; /v2 is the streaming endpoint
-    base_url="wss://eu2.rt.speechmatics.com/v2/agent",
+    base_url="wss://au.rt.speechmatics.com/v2/agent",
 )
 ```
 

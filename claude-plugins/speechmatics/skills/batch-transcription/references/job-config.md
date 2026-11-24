@@ -211,7 +211,7 @@ APP_ID="YourAppID"
 API_KEY="YOUR_API_KEY"
 PATH_TO_FILE="example.wav"
 
-curl -L -X POST "https://eu1.asr.api.speechmatics.com/v2/jobs/?sm-app=${APP_ID}" \
+curl -L -X POST "https://au1.asr.api.speechmatics.com/v2/jobs/?sm-app=${APP_ID}" \
     -H "Authorization: Bearer ${API_KEY}" \
     -F data_file=@${PATH_TO_FILE} \
     -F config='{"type": "transcription","transcription_config": { "model": "enhanced","language": "en" }}'

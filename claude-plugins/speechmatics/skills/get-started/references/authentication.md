@@ -17,7 +17,7 @@ Source: https://docs.speechmatics.com/get-started/authentication
 Include the key in the header of every request to the jobs API:
 
 ```bash
-curl -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/" \
+curl -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/" \
   -H "Authorization: Bearer $API_KEY"
 ```
 
@@ -27,7 +27,7 @@ Server-side: send the key in the header of the WebSocket connection request.
 
 ```http
 GET /v2/ HTTP/1.1
-Host: eu.rt.speechmatics.com
+Host: au.rt.speechmatics.com
 Upgrade: websocket
 Connection: Upgrade
 Authorization: Bearer YOUR_API_KEY
@@ -37,7 +37,7 @@ User-Agent: Python/3.8 websockets/8.1
 Client-side: use a temporary key as a query parameter.
 
 ```text
-wss://eu.rt.speechmatics.com/v2?jwt=$TEMP_KEY
+wss://au.rt.speechmatics.com/v2?jwt=$TEMP_KEY
 ```
 
 ### Agent STT
@@ -46,7 +46,7 @@ Server-side: send the key in the header of the WebSocket connection request to t
 
 ```http
 GET /v2/agent HTTP/1.1
-Host: eu.rt.speechmatics.com
+Host: au.rt.speechmatics.com
 Upgrade: websocket
 Connection: Upgrade
 Authorization: Bearer YOUR_API_KEY
@@ -56,7 +56,7 @@ User-Agent: Python/3.12 websockets/15.0
 Client-side: agent STT uses Realtime (`type=rt`) temporary keys as a query parameter.
 
 ```text
-wss://global.rt.speechmatics.com/v2/agent?jwt=$TEMP_KEY
+wss://au.rt.speechmatics.com/v2/agent?jwt=$TEMP_KEY
 ```
 
 ## Supported endpoints
@@ -147,13 +147,13 @@ Create a key valid for 60 seconds, tied to the reference `USER123`:
 curl -L -X POST "https://mp.speechmatics.com/v1/jwts?type=batch" \
      -H "Content-Type: application/json" \
      -H "Authorization: Bearer $API_KEY" \
-     -d '{"ttl": 60, "client_ref": "USER123"}'
+     -d '{"ttl": 60, "client_ref": "USER123", "region": "au"}'
 ```
 
 Use it in place of the API key:
 
 ```bash
-curl -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/" \
+curl -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/" \
   -H "Authorization: Bearer $TEMP_KEY"
 ```
 
@@ -198,7 +198,7 @@ A successful Realtime handshake request:
 
 ```http
 GET /v2/ HTTP/1.1
-Host: global.rt.speechmatics.com
+Host: au.rt.speechmatics.com
 Upgrade: websocket
 Connection: Upgrade
 Sec-WebSocket-Key: ujRTbIaQsXO/0uCbjjkSZQ==

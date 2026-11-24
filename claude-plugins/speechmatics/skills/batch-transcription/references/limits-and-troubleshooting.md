@@ -110,7 +110,7 @@ A notification delivery failure also writes to `job.errors[]`, but the job stays
 To stop a job that seems stuck, runs too long, or is no longer needed, delete it with the `force` parameter:
 
 ```bash
-curl -L -X DELETE "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}?force=true" \
+curl -L -X DELETE "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}?force=true" \
   -H "Authorization: Bearer ${API_KEY}"
 ```
 

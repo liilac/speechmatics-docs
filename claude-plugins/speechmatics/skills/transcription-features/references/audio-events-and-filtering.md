@@ -172,7 +172,7 @@ API_KEY = "YOUR_API_KEY"
 PATH_TO_FILE = "example.wav"
 
 settings = ConnectionSettings(
-    url="https://eu1.asr.api.speechmatics.com/v2",
+    url="https://au1.asr.api.speechmatics.com/v2",
     auth_token=API_KEY,
 )
 
@@ -200,7 +200,7 @@ from speechmatics.models import AudioEventsConfig, TranscriptionConfig
 
 API_KEY = "YOUR_API_KEY"
 PATH_TO_FILE = "example.wav"
-CONNECTION_URL = "wss://eu.rt.speechmatics.com/v2"
+CONNECTION_URL = "wss://au.rt.speechmatics.com/v2"
 
 # Create a real-time client
 ws = speechmatics.client.WebsocketClient(

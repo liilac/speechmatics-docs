@@ -72,7 +72,7 @@ Check status the same way as for transcription jobs (`GET /v2/jobs/{jobid}`).
 | `GET /v2/jobs/<JOB_ID>/data` | The audio file submitted |
 
 ```bash
-curl -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/alignment?tags=one_per_line" \
+curl -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/alignment?tags=one_per_line" \
     -H "Authorization: Bearer ${API_KEY}"
 ```
 

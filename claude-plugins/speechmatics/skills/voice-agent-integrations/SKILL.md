@@ -39,7 +39,7 @@ Do not use this skill for:
 
 Both STT integrations use agent STT, the turn-based interaction pattern on the Realtime API, on the Linden 1 model.
 
-- Endpoint: `wss://eu2.rt.speechmatics.com/v2/agent`. Override with `base_url` (Pipecat also reads `SPEECHMATICS_RT_URL`) for another region or a self-hosted deployment. The `/v2/agent` path is required (`/v2` is the streaming endpoint); the SDK appends `/agent` when the URL omits it.
+- Endpoint: the LiveKit and Pipecat integrations connect to `wss://eu2.rt.speechmatics.com/v2/agent` by default. These skills default to AU1, so set `base_url="wss://au.rt.speechmatics.com/v2/agent"` unless the user names another region. Override with `base_url` (Pipecat also reads `SPEECHMATICS_RT_URL`) for another region or a self-hosted deployment. The `/v2/agent` path is required (`/v2` is the streaming endpoint); the SDK appends `/agent` when the URL omits it.
 - `model`: `linden-1` is the only model agent STT accepts.
 - Minimum versions for Linden 1: LiveKit Agents v1.8.2, Pipecat 1.11.0.
 - Sample rate: `8000` or `16000` only.

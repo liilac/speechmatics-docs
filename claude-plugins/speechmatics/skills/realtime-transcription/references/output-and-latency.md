@@ -163,5 +163,5 @@ For integrations where customers use their own Speechmatics API keys, aggregate 
 Once enabled, add the `sm-app` query parameter to the connection URL:
 
 ```bash
-wss://eu.rt.speechmatics.com/v2?sm-app=YourAppID
+wss://au.rt.speechmatics.com/v2?sm-app=YourAppID
 ```

@@ -173,7 +173,7 @@ Blank cells: the docs do not state it.
 ### Feature discovery
 
 ```bash
-curl "https://eu1.asr.api.speechmatics.com/v1/discovery/features"
+curl "https://au1.asr.api.speechmatics.com/v1/discovery/features"
 ```
 
 Returns supported languages, output locales, domains, translation pairs and language identification languages. It does not report formatting coverage. Details: [references/feature-discovery.md](references/feature-discovery.md)

@@ -110,7 +110,7 @@ If an application lets users enter their own Speechmatics API key, Speechmatics 
 Batch:
 
 ```bash
-curl -L -X POST "https://eu1.asr.api.speechmatics.com/v2/jobs/?sm-app=${APP_ID}" \
+curl -L -X POST "https://au1.asr.api.speechmatics.com/v2/jobs/?sm-app=${APP_ID}" \
     -H "Authorization: Bearer ${API_KEY}" \
     -F data_file=@${PATH_TO_FILE} \
     -F config='{"type": "transcription","transcription_config": { "model": "enhanced","language": "en" }}'
@@ -119,7 +119,7 @@ curl -L -X POST "https://eu1.asr.api.speechmatics.com/v2/jobs/?sm-app=${APP_ID}"
 Realtime:
 
 ```text
-wss://eu.rt.speechmatics.com/v2?sm-app=YourAppID
+wss://au.rt.speechmatics.com/v2?sm-app=YourAppID
 ```
 
 Docs: https://docs.speechmatics.com/speech-to-text/app-analytics
