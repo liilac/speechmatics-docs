@@ -1,0 +1,30 @@
+[
+  {
+    "prompt": "In a Speechmatics Batch job I set enable_redaction to true and the job gets rejected. I also have enable_entities set to true. What exactly do I need to add to transcription_config so the job is accepted? Keep it short.",
+    "expected_skill": "transcription-features",
+    "must_match": [
+      "redaction_config",
+      "entity_classes",
+      "detect_advanced_entities"
+    ],
+    "source": "docs/speech-to-text/features/pii-redaction.mdx"
+  },
+  {
+    "prompt": "For Speechmatics translation_config, how many target_languages can I request in one job or session, and which Realtime message carries partial translations? Answer concisely.",
+    "expected_skill": "transcription-features",
+    "must_match": ["\\b(5|five)\\b", "AddPartialTranslation"],
+    "source": "docs/speech-to-text/features/translation.mdx"
+  },
+  {
+    "prompt": "I'm streaming live audio to Speechmatics and passing a custom word list of about 25,000 product names. The connection gets closed right after I start the session. What is the limit on the list size, and which WebSocket close code should I expect? Brief answer please.",
+    "expected_skill": ["transcription-features", "realtime-transcription"],
+    "must_match": ["20[,.]?000", "1003"],
+    "source": "docs/speech-to-text/features/custom-dictionary.mdx"
+  },
+  {
+    "prompt": "We transcribe call center recordings with Speechmatics and quiet speech from other agents in the background keeps showing up in the transcript. What config setting suppresses it, and what range of values does it accept? Short answer with a JSON snippet.",
+    "expected_skill": "transcription-features",
+    "must_match": ["audio_filtering_config", "volume_threshold", "100"],
+    "source": "docs/speech-to-text/features/audio-filtering.mdx"
+  }
+]

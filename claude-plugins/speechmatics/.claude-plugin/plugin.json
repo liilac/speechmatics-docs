@@ -1,0 +1,18 @@
+{
+  "name": "speechmatics",
+  "version": "1.0.0",
+  "description": "Skills for building with Speechmatics: Speech to Text (Batch, Realtime, agent STT), Text to Speech, voice agent integrations, on-prem deployment, and account administration.",
+  "author": {
+    "name": "Speechmatics",
+    "url": "https://www.speechmatics.com"
+  },
+  "homepage": "https://docs.speechmatics.com",
+  "license": "MIT",
+  "keywords": [
+    "speechmatics",
+    "speech-to-text",
+    "text-to-speech",
+    "transcription",
+    "voice-agents"
+  ]
+}

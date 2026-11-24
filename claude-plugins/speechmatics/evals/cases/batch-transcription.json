@@ -1,0 +1,26 @@
+[
+  {
+    "prompt": "I'm using the Speechmatics Batch API and calling POST /v2/jobs?wait=60&format=txt. For long files the job isn't finished after 60 seconds. What HTTP status code and what value of the `status` field do I get back in that case, and how do I get the transcript afterwards? Keep it concise.",
+    "expected_skill": "batch-transcription",
+    "must_match": ["\\b201\\b", "\\bcreated\\b", "/transcript"],
+    "source": "docs/speech-to-text/batch/synchronous.mdx"
+  },
+  {
+    "prompt": "In a Speechmatics batch job's notification_config, what are the possible values of the `status` query parameter that gets appended to my callback URL, and what User-Agent do the callbacks use? Short answer please.",
+    "expected_skill": "batch-transcription",
+    "must_match": ["fetch_error", "trim_error", "Speechmatics-API/2\\.0"],
+    "source": "docs/speech-to-text/batch/notifications.md"
+  },
+  {
+    "prompt": "I need to transcribe a 3 GB video recording with Speechmatics' file transcription API, but the upload gets rejected. What's the upload size limit and how do I submit a file this big instead? Give me a concise answer with the JSON config.",
+    "expected_skill": "batch-transcription",
+    "must_match": ["fetch_data", "1\\s?GB"],
+    "source": "docs/speech-to-text/batch/limits.mdx"
+  },
+  {
+    "prompt": "One of my Speechmatics file transcription jobs seems stuck in progress and I just want to kill it. When I try to delete it I get a 'Resource Locked' error. What's the right request to terminate it? Concise curl example please.",
+    "expected_skill": "batch-transcription",
+    "must_match": ["DELETE", "force(=true)?"],
+    "source": "docs/speech-to-text/batch/troubleshooting.mdx"
+  }
+]

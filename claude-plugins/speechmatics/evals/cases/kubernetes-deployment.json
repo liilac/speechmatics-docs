@@ -1,0 +1,26 @@
+[
+  {
+    "prompt": "I'm upgrading the Speechmatics sm-realtime Helm chart. Applying the sessiongroups CRD with kubectl fails with 'metadata.annotations: Too long'. What's the correct command? Short answer.",
+    "expected_skill": "kubernetes-deployment",
+    "must_match": ["--server-side", "helm\\s+show\\s+crds"],
+    "source": "docs/deployments/kubernetes/realtime.mdx"
+  },
+  {
+    "prompt": "In the Speechmatics sm-realtime chart values.yaml, how do I turn off the default Ingress and expose proxy-service through a Gateway API HTTPRoute instead? Give a minimal values snippet.",
+    "expected_skill": "kubernetes-deployment",
+    "must_match": ["httproute", "parentRefs", "enabled:\\s*false"],
+    "source": "docs/deployments/kubernetes/assets/httproute.values.yaml"
+  },
+  {
+    "prompt": "I just installed Speechmatics live transcription on my Kubernetes cluster with Helm. What one command tells me whether the transcribers and GPU inference servers are up and have capacity? Be brief.",
+    "expected_skill": "kubernetes-deployment",
+    "must_match": ["kubectl\\s+get\\s+sessiongroups?"],
+    "source": "docs/deployments/kubernetes/realtime.mdx"
+  },
+  {
+    "prompt": "Before I install Speechmatics on-prem streaming transcription on Kubernetes with Helm, which secrets does the chart expect for pulling images and for the license, and what must they be called? Concise answer.",
+    "expected_skill": "kubernetes-deployment",
+    "must_match": ["speechmatics-registry", "speechmatics-license"],
+    "source": "docs/deployments/kubernetes/prerequisites.mdx"
+  }
+]

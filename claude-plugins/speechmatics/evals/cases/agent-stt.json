@@ -1,0 +1,26 @@
+[
+  {
+    "prompt": "In Speechmatics agent STT with turn_config.turn_detection_mode set to external, which message do I send to close a turn and which field is required in it? Brief answer with the JSON.",
+    "expected_skill": "agent-stt",
+    "must_match": ["ForceEndOfUtterance", "timestamp"],
+    "source": "docs/speech-to-text/agent-stt/turn-detection.mdx"
+  },
+  {
+    "prompt": "Which audio_format encodings and sample rates does the Speechmatics /v2/agent WebSocket endpoint accept in StartRecognition? Just list them.",
+    "expected_skill": "agent-stt",
+    "must_match": ["pcm_f32le", "pcm_s16le", "8[\\s,]?000|8\\s?kHz"],
+    "source": "spec/agent-stt.yaml"
+  },
+  {
+    "prompt": "I'm building a phone voice bot and want Speechmatics to hand me complete, punctuated, speaker-labelled chunks of what the caller said plus a signal when they've finished their turn, so I can pass it to my LLM. Which WebSocket URL and model value should I use? Keep it short.",
+    "expected_skill": "agent-stt",
+    "must_match": ["rt\\.speechmatics\\.com/v2/agent", "linden-1"],
+    "source": "spec/agent-stt.yaml"
+  },
+  {
+    "prompt": "With Speechmatics' turn-based transcription for voice agents, what is the longest stretch of audio a single finalized transcript chunk can cover, and what does it usually mean if I hit that? One or two sentences.",
+    "expected_skill": "agent-stt",
+    "must_match": ["(two|2)[\\s-]*min|120[\\s-]*s"],
+    "source": "docs/speech-to-text/agent-stt/segmentation.mdx"
+  }
+]

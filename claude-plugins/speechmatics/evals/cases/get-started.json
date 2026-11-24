@@ -1,0 +1,26 @@
+[
+  {
+    "prompt": "For Speechmatics temporary keys from POST https://mp.speechmatics.com/v1/jwts, what is the allowed range for `ttl` and what does `type` default to? Answer concisely.",
+    "expected_skill": "get-started",
+    "must_match": ["86400", "\\b60\\b", "batch"],
+    "source": "docs/get-started/authentication.mdx"
+  },
+  {
+    "prompt": "I set \"model\": \"melia-1\" with \"language\": \"auto\" in my Speechmatics transcription_config and get an error. What value should `language` have for this model? One-line answer please.",
+    "expected_skill": "get-started",
+    "must_match": ["multi"],
+    "source": "docs/speech-to-text/models.mdx"
+  },
+  {
+    "prompt": "I'm building a web app that streams microphone audio straight from the browser to Speechmatics for live transcription. Browsers can't set headers on a WebSocket and I don't want to ship my API key. How do I authenticate? Keep it short, with the request I need to make.",
+    "expected_skill": "get-started",
+    "must_match": ["mp\\.speechmatics\\.com/v1/jwts", "jwt=", "type=rt"],
+    "source": "docs/get-started/authentication.mdx"
+  },
+  {
+    "prompt": "My backend mints short-lived Speechmatics tokens so users can upload files for transcription directly. It works against the European endpoint but the same token is rejected when I call the US one. What am I missing? Brief answer.",
+    "expected_skill": "get-started",
+    "must_match": ["region", "usa"],
+    "source": "docs/get-started/authentication.mdx"
+  }
+]

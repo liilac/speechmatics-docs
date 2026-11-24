@@ -1,0 +1,26 @@
+[
+  {
+    "prompt": "What exact `sm-metrics` command computes WER and shows a highlighted diff between a reference and a Speechmatics transcript, and which pip package installs it? Concise answer.",
+    "expected_skill": "accuracy-benchmarking",
+    "must_match": ["sm-metrics\\s+wer\\s+--diff", "speechmatics-python"],
+    "source": "docs/speech-to-text/accuracy-benchmarking.mdx"
+  },
+  {
+    "prompt": "Speechmatics support has set us up with an application ID for app analytics. Show me how to pass the `sm-app` parameter on a Realtime WebSocket connection. One-line example is enough.",
+    "expected_skill": "accuracy-benchmarking",
+    "must_match": ["rt\\.speechmatics\\.com/v2/?\\?sm-app="],
+    "source": "docs/speech-to-text/app-analytics.mdx"
+  },
+  {
+    "prompt": "I want to check how accurate Speechmatics transcripts are against human transcripts of my call recordings and compare with another vendor. Does Speechmatics provide a tool for scoring this, and how do I install and run it? Keep it short.",
+    "expected_skill": "accuracy-benchmarking",
+    "must_match": ["sm-metrics", "pip install speechmatics-python"],
+    "source": "docs/speech-to-text/accuracy-benchmarking.mdx"
+  },
+  {
+    "prompt": "I'm planning a head-to-head accuracy comparison of Speechmatics against another speech recognition engine. According to Speechmatics' guidance, how much test material do I need per language for the result to be statistically meaningful? Brief answer.",
+    "expected_skill": "accuracy-benchmarking",
+    "must_match": ["10[,.\\s]?000\\s*words", "(1|one)\\s*hour"],
+    "source": "docs/speech-to-text/accuracy-benchmarking.mdx"
+  }
+]

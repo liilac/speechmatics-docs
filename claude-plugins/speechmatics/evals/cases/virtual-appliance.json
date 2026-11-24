@@ -1,0 +1,30 @@
+[
+  {
+    "prompt": "On a Speechmatics Batch virtual appliance with scaling_mode set to adaptive, how many threads does a job for a 12 minute audio file get, and what is the maximum number of threads per job? Answer in one or two sentences.",
+    "expected_skill": "virtual-appliance",
+    "must_match": ["\\b(3|three)\\b", "\\b(4|four)\\b"],
+    "source": "docs/deployments/virtual-appliance/administration/scaling.mdx"
+  },
+  {
+    "prompt": "I want to protect transcription on my Speechmatics virtual appliance using the /v2/security/jobtoken endpoint. What JSON field do I POST, and what header do Batch job requests need afterwards? Keep it brief, a short curl snippet is fine.",
+    "expected_skill": "virtual-appliance",
+    "must_match": ["user_token", "Authorization:\\s*Bearer"],
+    "source": "docs/deployments/virtual-appliance/administration/security.mdx"
+  },
+  {
+    "prompt": "We run the Speechmatics on-prem VM image (the OVA) for live streaming transcription and have HTTPS set up. Our network team wants the minimum set of inbound ports to open on the firewall for clients. Which ports are they? Short answer please.",
+    "expected_skill": "virtual-appliance",
+    "must_match": ["\\b443\\b", "\\b9004\\b"],
+    "source": "docs/deployments/virtual-appliance/administration/security.mdx"
+  },
+  {
+    "prompt": "The disk on our self-hosted Speechmatics appliance VM keeps filling up with files from old batch jobs. How do I make it purge them more often than the default, and what is the default? Give me a concise curl command.",
+    "expected_skill": "virtual-appliance",
+    "must_match": [
+      "/v2/management/cleanupinterval",
+      "\"?minutes\"?",
+      "24\\s*-?\\s*h"
+    ],
+    "source": "docs/deployments/virtual-appliance/administration/services.mdx"
+  }
+]
