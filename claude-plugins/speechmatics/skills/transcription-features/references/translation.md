@@ -157,7 +157,7 @@ LANGUAGE = "en" # Transcription language
 TRANSLATION_LANGUAGES = ["es","de"]
 
 settings = ConnectionSettings(
-    url="https://eu1.asr.api.speechmatics.com/v2",
+    url="https://au1.asr.api.speechmatics.com/v2",
     auth_token=API_KEY,
 )
 
@@ -212,7 +212,7 @@ API_KEY = "YOUR_API_KEY"
 PATH_TO_FILE = "example.wav"
 LANGUAGE = "en" # Transcription language
 TRANSLATION_LANGUAGES = ["es","de"]
-CONNECTION_URL = f"wss://eu.rt.speechmatics.com/v2/{LANGUAGE}"
+CONNECTION_URL = f"wss://au.rt.speechmatics.com/v2/{LANGUAGE}"
 
 # Create a transcription client
 ws = speechmatics.client.WebsocketClient(

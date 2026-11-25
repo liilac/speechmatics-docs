@@ -224,7 +224,7 @@ import pyaudio
 
 API_KEY = "YOUR_API_KEY"
 LANGUAGE = "en"
-CONNECTION_URL = f"wss://eu.rt.speechmatics.com/v2/{LANGUAGE}"
+CONNECTION_URL = f"wss://au.rt.speechmatics.com/v2/{LANGUAGE}"
 DEVICE_INDEX = -1
 CHUNK_SIZE = 1024
 
@@ -361,7 +361,7 @@ except HTTPStatusError as e:
 
 Notes:
 
-- This sample connects to `wss://eu.rt.speechmatics.com/v2/{LANGUAGE}`; the other samples connect to `wss://eu.rt.speechmatics.com/v2`. If a language code is in the URL, `transcription_config.language` must be consistent with it.
+- This sample connects to `wss://au.rt.speechmatics.com/v2/{LANGUAGE}`; the other samples connect to `wss://au.rt.speechmatics.com/v2`. If a language code is in the URL, `transcription_config.language` must be consistent with it.
 - To add end of utterance detection, pass `conversation_config=speechmatics.models.ConversationConfig(end_of_utterance_silence_trigger=...)` in `TranscriptionConfig` and handle `ServerMessageType.EndOfUtterance`. See [turn-detection.md](turn-detection.md).
 - A 401 surfaces as `httpx.HTTPStatusError`.
 
@@ -376,7 +376,7 @@ from urllib.request import urlopen
 
 API_KEY = "YOUR_API_KEY"
 LANGUAGE = "en"
-CONNECTION_URL = "wss://eu.rt.speechmatics.com/v2"
+CONNECTION_URL = "wss://au.rt.speechmatics.com/v2"
 
 # The raw audio stream will be a few seconds ahead of the radio
 AUDIO_STREAM_URL = "https://media-ice.musicradio.com/LBCUKMP3"  # LBC Radio stream

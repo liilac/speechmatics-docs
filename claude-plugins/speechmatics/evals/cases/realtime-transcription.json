@@ -6,7 +6,7 @@
     "source": "docs/speech-to-text/realtime/output.mdx"
   },
   {
-    "prompt": "My Speechmatics Realtime WebSocket (wss://eu.rt.speechmatics.com/v2) keeps closing with code 4005. What does that code mean and how long should I wait before retrying? Keep it brief.",
+    "prompt": "My Speechmatics Realtime WebSocket (wss://au.rt.speechmatics.com/v2) keeps closing with code 4005. What does that code mean and how long should I wait before retrying? Keep it brief.",
     "expected_skill": "realtime-transcription",
     "must_match": ["quota_exceeded", "5\\s*(–|-|to)\\s*10"],
     "source": "docs/api-ref/_realtime-connection-close.mdx"

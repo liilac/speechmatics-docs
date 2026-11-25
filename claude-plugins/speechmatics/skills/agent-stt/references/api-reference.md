@@ -26,13 +26,13 @@ Authentication (either one):
 | Scheme | How | Use for |
 | --- | --- | --- |
 | API key | `Authorization: Bearer <API key>` header | Server-side connections |
-| Temporary key | `jwt` query parameter, for example `wss://global.rt.speechmatics.com/v2/agent?jwt=<temporary-key>` | Browsers, which cannot set the `Authorization` header and should not hold the long-lived API key. Use a Realtime (`type=rt`) temporary key. |
+| Temporary key | `jwt` query parameter, for example `wss://au.rt.speechmatics.com/v2/agent?jwt=<temporary-key>` | Browsers, which cannot set the `Authorization` header and should not hold the long-lived API key. Use a Realtime (`type=rt`) temporary key. |
 
 A successful handshake request:
 
 ```http
 GET /v2/agent HTTP/1.1
-Host: eu.rt.speechmatics.com
+Host: au.rt.speechmatics.com
 Upgrade: websocket
 Connection: Upgrade
 Sec-WebSocket-Key: ujRTbIaQsXO/0uCbjjkSZQ==

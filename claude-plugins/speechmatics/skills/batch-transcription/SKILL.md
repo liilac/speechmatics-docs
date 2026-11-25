@@ -1,6 +1,6 @@
 ---
 name: batch-transcription
-description: Transcribes pre-recorded audio and video files with the Speechmatics Batch API (REST, https://eu1.asr.api.speechmatics.com/v2). Use when creating a transcription job (POST /jobs with data_file upload or fetch_data URL), writing a job config (transcription_config, model, language, language_hints), polling job status, retrieving transcripts in json-v2, txt, or srt, blocking with the wait query parameter (synchronous transcription), configuring notification_config webhooks, batch speaker or channel diarization, batch speaker identification (get_speakers, speakers), language identification (language auto, language_identification_config), alignment jobs, the /usage endpoint, rate and file size limits, or debugging 401, 403, 429, and rejected jobs. Also covers the speechmatics-batch Python package and @speechmatics/batch-client JavaScript client.
+description: Transcribes pre-recorded audio and video files with the Speechmatics Batch API (REST, https://au1.asr.api.speechmatics.com/v2). Use when creating a transcription job (POST /jobs with data_file upload or fetch_data URL), writing a job config (transcription_config, model, language, language_hints), polling job status, retrieving transcripts in json-v2, txt, or srt, blocking with the wait query parameter (synchronous transcription), configuring notification_config webhooks, batch speaker or channel diarization, batch speaker identification (get_speakers, speakers), language identification (language auto, language_identification_config), alignment jobs, the /usage endpoint, rate and file size limits, or debugging 401, 403, 429, and rejected jobs. Also covers the speechmatics-batch Python package and @speechmatics/batch-client JavaScript client.
 ---
 
 # Batch transcription
@@ -28,7 +28,7 @@ Use a sibling skill instead for:
 
 ## Endpoints
 
-Base URL used throughout the docs: `https://eu1.asr.api.speechmatics.com/v2`. For other regions, see `speechmatics:get-started`.
+Default base URL in this skill: `https://au1.asr.api.speechmatics.com/v2` (AU1). The docs samples use `eu1.asr.api.speechmatics.com`; switch region only when the user asks or their key belongs to another region. A Batch temporary key for AU1 needs `"region": "au"`. Other regions: `speechmatics:get-started`.
 
 | Method | Path | Purpose |
 |---|---|---|
@@ -49,7 +49,7 @@ Full parameters, response schemas, and error codes: [references/api-reference.md
 API_KEY="YOUR_API_KEY"
 PATH_TO_FILE="example.wav"
 
-curl -L -X POST "https://eu1.asr.api.speechmatics.com/v2/jobs/" \
+curl -L -X POST "https://au1.asr.api.speechmatics.com/v2/jobs/" \
 -H "Authorization: Bearer ${API_KEY}" \
 -F data_file=@${PATH_TO_FILE} \
 -F config='{"type": "transcription","transcription_config": { "model":"enhanced", "language": "en" }}'
@@ -59,11 +59,11 @@ The response is HTTP 201 with `{"id":"z2jfp1jwu1"}`. Then:
 
 ```bash
 # Status: running | done | rejected | deleted | expired
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/$JOB_ID" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/$JOB_ID" \
 -H "Authorization: Bearer $API_KEY"
 
 # Transcript as plain text (default is json-v2; srt also available)
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript?format=txt" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript?format=txt" \
   -H "Authorization: Bearer ${API_KEY}"
 ```
 
@@ -71,7 +71,7 @@ curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcrip
 
 ```bash
 # Create a job and block for up to 60 seconds for a plain-text transcript
-curl -L -X POST "https://eu1.asr.api.speechmatics.com/v2/jobs/?wait=60&format=txt" \
+curl -L -X POST "https://au1.asr.api.speechmatics.com/v2/jobs/?wait=60&format=txt" \
 -H "Authorization: Bearer ${API_KEY}" \
 -F data_file=@${PATH_TO_FILE} \
 -F config='{"type": "transcription","transcription_config": { "model": "enhanced", "language": "en" }}'

@@ -23,7 +23,7 @@ API_KEY="YOUR_API_KEY"
 PATH_TO_FILE="example.wav"
 
 # Create a job and block for up to 60 seconds for a plain-text transcript
-curl -L -X POST "https://eu1.asr.api.speechmatics.com/v2/jobs/?wait=60&format=txt" \
+curl -L -X POST "https://au1.asr.api.speechmatics.com/v2/jobs/?wait=60&format=txt" \
 -H "Authorization: Bearer ${API_KEY}" \
 -F data_file=@${PATH_TO_FILE} \
 -F config='{"type": "transcription","transcription_config": { "model": "enhanced", "language": "en" }}'
@@ -100,7 +100,7 @@ After `status: "created"`, keep waiting with `GET /jobs/{jobid}?wait=N` or `GET 
 
 ```bash
 # Wait up to 30 seconds for the job to reach a terminal state
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}?wait=30" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}?wait=30" \
 -H "Authorization: Bearer ${API_KEY}"
 ```
 
@@ -110,7 +110,7 @@ The response is always HTTP 200 with the job in its current state. If the job is
 
 ```bash
 # Wait up to 30 seconds for the transcript, then return it as plain text
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript?wait=30&format=txt" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript?wait=30&format=txt" \
 -H "Authorization: Bearer ${API_KEY}"
 ```
 
@@ -124,7 +124,7 @@ The default is currently 5 seconds and will increase. Treat it as an unspecified
 
 ```bash
 # Return the current job state without waiting
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}?wait=0" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}?wait=0" \
 -H "Authorization: Bearer ${API_KEY}"
 ```
 

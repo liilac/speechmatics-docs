@@ -24,13 +24,13 @@ Authentication (either one):
 | Scheme | How | Use for |
 | --- | --- | --- |
 | API key | `Authorization: Bearer <API key>` header | Server-side connections |
-| Temporary key | `jwt` query parameter, for example `wss://global.rt.speechmatics.com/v2?jwt=<temporary-key>` | Browsers, which cannot set the `Authorization` header and should not hold the long-lived API key |
+| Temporary key | `jwt` query parameter, for example `wss://au.rt.speechmatics.com/v2?jwt=<temporary-key>` | Browsers, which cannot set the `Authorization` header and should not hold the long-lived API key |
 
 A successful handshake request:
 
 ```http
 GET /v2/ HTTP/1.1
-Host: global.rt.speechmatics.com
+Host: au.rt.speechmatics.com
 Upgrade: websocket
 Connection: Upgrade
 Sec-WebSocket-Key: ujRTbIaQsXO/0uCbjjkSZQ==

@@ -379,7 +379,7 @@ from speechmatics.client import (
 API_KEY = "YOUR_API_KEY"
 PATH_TO_FILE = "example.wav"
 LANGUAGE = "en"
-CONNECTION_URL = "wss://eu.rt.speechmatics.com/v2"
+CONNECTION_URL = "wss://au.rt.speechmatics.com/v2"
 
 async def enroll_speakers():
     handler_tasks: list[asyncio.Task] = []
@@ -435,7 +435,7 @@ from speechmatics.client import ServerMessageType
 API_KEY = "YOUR_API_KEY"
 PATH_TO_FILE = "example.wav"
 LANGUAGE = "en"
-CONNECTION_URL = "wss://eu.rt.speechmatics.com/v2"
+CONNECTION_URL = "wss://au.rt.speechmatics.com/v2"
 
 async def identify_speakers():
     handler_tasks: list[asyncio.Task] = []

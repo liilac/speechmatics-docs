@@ -7,7 +7,11 @@
   },
   {
     "prompt": "Speechmatics support has set us up with an application ID for app analytics. Show me how to pass the `sm-app` parameter on a Realtime WebSocket connection. One-line example is enough.",
-    "expected_skill": "accuracy-benchmarking",
+    "expected_skill": [
+      "accuracy-benchmarking",
+      "realtime-transcription",
+      "batch-transcription"
+    ],
     "must_match": ["rt\\.speechmatics\\.com/v2/?\\?sm-app="],
     "source": "docs/speech-to-text/app-analytics.mdx"
   },

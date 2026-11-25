@@ -10,7 +10,7 @@ A job can be retrieved by ID for up to 7 days, after which it is deleted automat
 
 ```bash
 # $JOB_ID is from the submit command output
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/$JOB_ID" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/$JOB_ID" \
 -H "Authorization: Bearer $API_KEY"
 ```
 
@@ -56,7 +56,7 @@ Example response:
 Returns the 100 most recent jobs submitted in the past 7 days. Deleted jobs are excluded unless you pass `include_deleted=true`.
 
 ```bash
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/" \
      -H "Authorization: Bearer $API_KEY"
 ```
 
@@ -65,7 +65,7 @@ Paginate with `limit` (1 to 100) and `created_before` (UTC timestamp cursor). Se
 ## Get the transcript
 
 ```bash
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript?format=txt" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript?format=txt" \
   -H "Authorization: Bearer ${API_KEY}"
 ```
 
@@ -272,7 +272,7 @@ Docs: https://docs.speechmatics.com/speech-to-text/batch/srt-format
 SubRip (SRT) output contains the transcript with alignment timestamps. Default line length and line count follow broadcaster best practice.
 
 ```bash
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript?format=srt" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript?format=srt" \
     -H "Authorization: Bearer ${API_KEY}"
 ```
 

@@ -31,13 +31,13 @@ Three ways to use agent STT: an integration (LiveKit, Pipecat, Vapi), the Agent 
 ## Endpoint and authentication
 
 ```
-wss://global.rt.speechmatics.com/v2/agent
+wss://au.rt.speechmatics.com/v2/agent
 ```
 
-The global endpoint routes to the nearest region. Pin a region for data residency: `wss://eu.rt.speechmatics.com/v2/agent`, `wss://us.rt.speechmatics.com/v2/agent`, `wss://au.rt.speechmatics.com/v2/agent`.
+This skill defaults to AU1. Other regional endpoints: `wss://eu.rt.speechmatics.com/v2/agent` and `wss://us.rt.speechmatics.com/v2/agent`. `wss://global.rt.speechmatics.com/v2/agent` routes to the nearest region and may route to any region, so avoid it when data must stay in Australia.
 
 - Server side: `Authorization: Bearer YOUR_API_KEY` on the handshake request.
-- Browser: a Realtime (`type=rt`) temporary key in the query string, `wss://global.rt.speechmatics.com/v2/agent?jwt=<temporary-key>`. There is no separate agent STT key type. See `speechmatics:get-started`.
+- Browser: a Realtime (`type=rt`) temporary key in the query string, `wss://au.rt.speechmatics.com/v2/agent?jwt=<temporary-key>`. There is no separate agent STT key type. See `speechmatics:get-started`.
 - Handshake responses: `101` connected, `400` malformed request, `401` invalid API key or temporary key, `405` method is not `GET`.
 
 ## Quickstart: Agent STT SDK (Python)

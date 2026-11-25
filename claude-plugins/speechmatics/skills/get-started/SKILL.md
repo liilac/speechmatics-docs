@@ -75,7 +75,7 @@ Full comparison, Realtime gaps for Melia 1 and Oak 1, and configs: [references/m
 Batch:
 
 ```bash
-curl -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/" \
+curl -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/" \
   -H "Authorization: Bearer $API_KEY"
 ```
 
@@ -83,7 +83,7 @@ Realtime (server-side), in the WebSocket handshake:
 
 ```http
 GET /v2/ HTTP/1.1
-Host: eu.rt.speechmatics.com
+Host: au.rt.speechmatics.com
 Upgrade: websocket
 Connection: Upgrade
 Authorization: Bearer YOUR_API_KEY
@@ -111,13 +111,27 @@ Response: `{"key_value": "eyJhbG..."}`.
 | `client_ref` | Body | `batch` only. Restricts the key to jobs with that reference. Required when the key is exposed to end users. Ignored for `rt` |
 | `region` | Body | `batch` only: `eu` (default), `usa`, `au`. Must match the Batch endpoint called. Ignored for `rt` |
 
-- Realtime and agent STT in the browser: pass the key as a query parameter, `wss://eu.rt.speechmatics.com/v2?jwt=$TEMP_KEY` or `wss://global.rt.speechmatics.com/v2/agent?jwt=$TEMP_KEY`.
+- Realtime and agent STT in the browser: pass the key as a query parameter, `wss://au.rt.speechmatics.com/v2?jwt=$TEMP_KEY` or `wss://au.rt.speechmatics.com/v2/agent?jwt=$TEMP_KEY`.
 - Batch: use the temporary key in place of the API key in the `Authorization` header.
 - Enterprise customers must ask support or their account manager to enable temporary keys.
 
 Details, gotchas, handshake responses, and close codes: [references/authentication.md](references/authentication.md).
 
 ## Regions and endpoints
+
+Default region for this plugin: AU1 (Australia). Unless the user names another region, write code against:
+
+- Batch: `https://au1.asr.api.speechmatics.com/v2`
+- Realtime: `wss://au.rt.speechmatics.com/v2`
+- Agent STT: `wss://au.rt.speechmatics.com/v2/agent`
+
+AU1 rules:
+
+- The docs samples use EU1 hosts. Samples in these skills are changed to AU1; behavior is otherwise identical.
+- A Batch temporary key must be minted with `"region": "au"` or AU1 rejects it. Realtime temporary keys work in every region.
+- Do not use `global.rt.speechmatics.com` when audio must stay in Australia.
+- SDK samples that pass no URL (`speechmatics-batch`, `speechmatics-rt`, `speechmatics-agent-stt`, the JavaScript clients) connect to the SDK's own default endpoint. The docs do not state that default or document a URL option for these SDKs, so check the SDK's README for its endpoint setting before relying on AU1. Samples that take `url=` (the `speechmatics-python` `ConnectionSettings`) or `base_url` (LiveKit, Pipecat) are set to AU1 directly.
+- Text to Speech has a single preview endpoint with no region choice.
 
 Batch SaaS (the endpoint sets the region; use the same endpoint for every request about a job):
 

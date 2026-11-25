@@ -2,7 +2,7 @@
 
 Docs: https://docs.speechmatics.com/api-ref/batch/create-a-new-job (API reference section) and https://docs.speechmatics.com/speech-to-text/batch/usage
 
-- Base path: `/v2`. Scheme: `https`. Host used in the docs: `eu1.asr.api.speechmatics.com`. For other regions, see `speechmatics:get-started`.
+- Base path: `/v2`. Scheme: `https`. Host used in the docs: `au1.asr.api.speechmatics.com`. For other regions, see `speechmatics:get-started`.
 - Authentication: `Authorization: Bearer $API_KEY`. The bearer value is your API key or a temporary key (JWT).
 - Responses are `application/json` unless noted.
 
@@ -57,7 +57,7 @@ Errors:
 ```bash
 API_KEY="YOUR_API_KEY"
 
-curl -L -X POST "https://eu1.asr.api.speechmatics.com/v2/jobs" \
+curl -L -X POST "https://au1.asr.api.speechmatics.com/v2/jobs" \
   -H "Authorization: Bearer ${API_KEY}" \
   -F data_file=@example.wav \
   -F config='{"type": "transcription", "transcription_config": {"language": "en", "model": "enhanced"}}'
@@ -137,7 +137,7 @@ On the batch virtual appliance, `config` is not present in the items of this lis
 Errors: 401 (`Permission Denied`), 422 (`{"code": 422, "error": "limit in query must be of type int64"}`), 429, 500.
 
 ```bash
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs?limit=10" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs?limit=10" \
   -H "Authorization: Bearer ${API_KEY}"
 ```
 
@@ -206,7 +206,7 @@ Response `200` (`RetrieveJobResponse`): `{ "job": JobDetails }`.
 Errors: 401 (`Permission Denied`), 404 (`Job not found`), 410 (`Job Expired`), 429, 500.
 
 ```bash
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}" \
   -H "Authorization: Bearer ${API_KEY}"
 ```
 
@@ -239,14 +239,14 @@ Response `200`: `{ "job": JobDetails }` with `"status": "deleted"`.
 Errors: 401 (`Permission Denied`), 404 (`Job not found`), 410 (`Job Expired`), 423 (`{"code": 423, "error": "Resource Locked"}`), 429, 500.
 
 ```bash
-curl -L -X DELETE "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}" \
+curl -L -X DELETE "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}" \
   -H "Authorization: Bearer ${API_KEY}"
 ```
 
 Terminate a running job:
 
 ```bash
-curl -L -X DELETE "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}?force=true" \
+curl -L -X DELETE "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}?force=true" \
   -H "Authorization: Bearer ${API_KEY}"
 ```
 
@@ -289,7 +289,7 @@ Errors:
 | 500 | `{"code": 500, "error": "Internal Server Error"}` |
 
 ```bash
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript?format=txt" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/jobs/${JOB_ID}/transcript?format=txt" \
   -H "Authorization: Bearer ${API_KEY}"
 ```
 
@@ -322,7 +322,7 @@ Usage is the number of jobs successfully processed in a period and the total dur
 | `until` | query | date, `YYYY-MM-DD` | Include usage up to this date (inclusive). If omitted, usage is reported until the end of the previous UTC day |
 
 ```bash
-curl -L -X GET "https://eu1.asr.api.speechmatics.com/v2/usage?since=2023-01-01&until=2023-12-31" \
+curl -L -X GET "https://au1.asr.api.speechmatics.com/v2/usage?since=2023-01-01&until=2023-12-31" \
     -H "Authorization: Bearer $API_KEY"
 ```
 
@@ -430,7 +430,7 @@ PATH_TO_FILE = "example.wav"
 LANGUAGE = "en"
 
 settings = ConnectionSettings(
-    url="https://eu1.asr.api.speechmatics.com/v2",
+    url="https://au1.asr.api.speechmatics.com/v2",
     auth_token=API_KEY,
 )
 

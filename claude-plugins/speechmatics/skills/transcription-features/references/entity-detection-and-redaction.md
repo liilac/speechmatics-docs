@@ -153,7 +153,7 @@ PATH_TO_FILE = "example.wav"
 LANGUAGE = "en"  # Transcription language
 
 settings = ConnectionSettings(
-    url="https://eu1.asr.api.speechmatics.com/v2",
+    url="https://au1.asr.api.speechmatics.com/v2",
     auth_token=API_KEY,
 )
 
